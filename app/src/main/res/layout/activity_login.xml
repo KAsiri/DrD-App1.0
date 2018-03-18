@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background_image"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.ContentLoadingProgressBar
+            android:id="@+id/login_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            style="@style/imageStyle"
+            android:background="@drawable/logo" />
+
+        <android.support.v7.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/actvEmail"
+            style="@style/submitForm"
+            android:hint="@string/label_email" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            style="@style/submitForm"
+            android:hint="@string/label_password"
+            android:inputType="textPassword" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginStart="@dimen/dp20"
+            android:text="@string/remember_me"
+            android:textColor="@color/blue"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btLogin"
+            style="@style/mainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginStart="@dimen/dp20"
+            android:text="@string/newUser"
+            android:textColor="@color/blue"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btRegister"
+            style="@style/secondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/register"
+            android:textSize="24sp" />
+    </LinearLayout>
+</ScrollView>
+
+
+
