@@ -2,6 +2,7 @@ package khalidalasiri.drd10;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 
@@ -13,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -39,13 +41,13 @@ public class LoginActivity extends AppCompatActivity {
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText etPassword;
-    private View login_progress;
+    private ProgressBar login_progress;
     private Button btLogin;
     private Button btRegister;
 
-    List<HttpCookie> token;
-    String url;
-    String message ;
+    private List<HttpCookie> token;
+    String connection_url;
+    String message[] ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btLogin = findViewById(R.id.btLogin);
         btRegister = findViewById(R.id.btRegister);
+        login_progress = findViewById(R.id.login_progress);
+        message = new String[3];
 
         btLogin.setOnClickListener(new OnClickListener() {
             @Override
@@ -64,10 +68,13 @@ public class LoginActivity extends AppCompatActivity {
 
                 if ((!etPassword.getText().toString().isEmpty()) && (!mEmailView.getText().toString().isEmpty())) {
 
-                    url = "http://drd-ksa.com/drdAPI/AppAPI/api.php/";
                     try {
-                        token = new ConnectionToken().execute(url).get();
-                        message = new LoginAsync(token).execute("http://drd-ksa.com/drdAPI/api.php/User_Information?filter=Username,eq,"
+                        connection_url = "http://drd-ksa.com/drdAPI/AppAPI/api.php/";
+                        token = new ConnectionToken().execute(connection_url).get();
+                        LoginAsync loginAsync = new LoginAsync(token);
+                        login_progress.setVisibility(View.VISIBLE);
+                        loginAsync.setProgressBar(login_progress);
+                        message = loginAsync.execute("http://drd-ksa.com/drdAPI/api.php/User_Information?filter=Username,eq,"
                                         + mEmailView.getText().toString().replaceAll("\\s", ""),
                                 etPassword.getText().toString()).get();
 
@@ -76,7 +83,24 @@ public class LoginActivity extends AppCompatActivity {
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                    if (message[0].equals("Invalid Password") || message[0].equals("Invalid Login"))
+                    Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
+                    else if (message[0].equals("Login Successfully"))
+                    {
+                        Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
+                        if(message[2].equals("3"))
+                        {
+                            Intent pDB = new Intent(LoginActivity.this, PatientDashboard.class);
+                            pDB.putExtra("ID",message[1]);
+                            startActivity(pDB);
+                        }
+                        else if(message[2].equals("2"))
+                        {
+                            Intent pDB = new Intent(LoginActivity.this, DoctorDashboard.class);
+                            pDB.putExtra("ID",message[1]);
+                            startActivity(pDB);
+                        }
+                    }
 
                 } else
                     Toast.makeText(getApplicationContext(), "Empty", Toast.LENGTH_SHORT).show();

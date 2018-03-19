@@ -26,7 +26,10 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
+        <activity android:name=".PatientDashboard" />
+        <activity android:name=".DoctorDashboard" />
+        <activity android:name=".Registration" />
+        <activity android:name=".CompleteReistration"></activity>
     </application>
 
 </manifest>

@@ -14,4 +14,16 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="logo">Dr. D Logo</string>
+
+    <!-- Strings related to Registration -->
+    <string name="registerMessage">Welcome, This Registration is for Patient only , if you are Doctor or Hospital please visit our website.</string>
+    <string name="username">Username</string>
+    <string name="fristname">Frist Name</string>
+    <string name="fathername">Father Name</string>
+    <string name="grandfathername">Grandfather Name</string>
+    <string name="familyname">Family Name</string>
+    <string name="personalInfo">Personal Information</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="termsPrivacy"><![CDATA[Terms & Privacy]]></string>
 </resources>

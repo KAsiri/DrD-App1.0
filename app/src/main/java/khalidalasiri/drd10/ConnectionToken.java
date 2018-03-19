@@ -34,6 +34,7 @@ public class ConnectionToken extends AsyncTask<String,Void,List<HttpCookie> >{
         URL url;
         HttpURLConnection urlConnection = null;
 
+        Log.d("print","ConnectionToken");
         // Username and Password on JSON format
         JSONObject jsonData = new JSONObject();
 

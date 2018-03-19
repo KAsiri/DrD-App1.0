@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="khalidalasiri.drd10.Registration"
+    android:background="@drawable/app_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:text="@string/registerMessage"
+            android:textColor="@color/red"
+            android:textSize="@dimen/spTitle"/>
+
+        <EditText
+            android:id="@+id/username"
+            style="@style/submitForm"
+            android:hint="@string/username"/>
+        <EditText
+            android:id="@+id/fristname"
+            style="@style/submitForm"
+            android:hint="@string/label_email"/>
+        <EditText
+            android:id="@+id/password"
+            style="@style/submitForm"
+            android:hint="@string/label_password"/>
+        <EditText
+            android:id="@+id/confirmPassword"
+            style="@style/submitForm"
+            android:hint="@string/confirmPassword"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginLeft="@dimen/dp20"
+            android:text="@string/termsPrivacy"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:padding="@dimen/dp5"/>
+
+        <Button
+            android:id="@+id/btRegister"
+            style="@style/mainButton"
+            android:text="@string/register"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</ScrollView>

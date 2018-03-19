@@ -1,8 +1,11 @@
 package khalidalasiri.drd10;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,25 +21,32 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by kasir on 3/19/2018.
  */
 
-class LoginAsync extends AsyncTask<String, Void, String> {
+class LoginAsync extends AsyncTask<String, Integer, String[]> {
 
-    URL url;
-    HttpURLConnection httpURLConnection;
-    List<HttpCookie> token;
+    private URL url;
+    private HttpURLConnection httpURLConnection;
+    private List<HttpCookie> token;
+    ProgressBar bar;
 
     public LoginAsync(List<HttpCookie> token) {
         this.token = token;
     }
 
+    public void setProgressBar(ProgressBar bar) {
+        this.bar = bar;
+    }
     @Override
-    protected String doInBackground(String... strings) {
+    protected String[] doInBackground(String... strings) {
         String password;
+
         try {
+            Log.d("print","Check");
             password = strings[1];
             url = new URL(strings[0]);
             httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -60,16 +70,25 @@ class LoginAsync extends AsyncTask<String, Void, String> {
             JSONObject User_Information = root.getJSONObject("User_Information");
             JSONArray records = User_Information.getJSONArray("records");
 
+            String result[] = new String[3];
             if (records.isNull(0)) {
-                return "Invalid Login";
+                result[0] = "Invalid Login";
+                return result;
             } else {
                 Log.d("print", password);
-                if (password.equals(records.getJSONArray(0).get(8).toString()))
+                if (password.equals(records.getJSONArray(0).get(8).toString())) {
                     //Log.d("print", "Login Successfully");
-                    return "Login Successfully";
-                else
+
+                    result[0] = "Login Successfully";
+                    result[1] = records.getJSONArray(0).get(0).toString() ;
+                    result[2] = records.getJSONArray(0).get(9).toString() ;
+                    return result;
+                }
+                else {
                     //Log.d("print", "Invalid Password");
-                    return "Invalid Password";
+                    result[0] = "Invalid Password";
+                    return result;
+                }
 
             }
 
@@ -82,5 +101,20 @@ class LoginAsync extends AsyncTask<String, Void, String> {
         }
 
         return null;
+    }
+
+
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+        bar.setProgress(values[0]);
+    }
+
+    @Override
+    protected void onPostExecute(String[] strings) {
+        super.onPostExecute(strings);
+        bar.setProgress(0);
+        bar.setVisibility(View.INVISIBLE);
     }
 }
