@@ -14,12 +14,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp5"
-            android:layout_margin="@dimen/dp5"
             android:text="@string/registerMessage"
-            android:textColor="@color/red"
-            android:textSize="@dimen/spTitle"/>
+            style="@style/Titles"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registerByEmail"
+            style="@style/Titles"/>
         <EditText
             android:id="@+id/username"
             style="@style/submitForm"
@@ -31,11 +33,13 @@
         <EditText
             android:id="@+id/password"
             style="@style/submitForm"
-            android:hint="@string/label_password"/>
+            android:hint="@string/label_password"
+            android:inputType="textPassword"/>
         <EditText
             android:id="@+id/confirmPassword"
             style="@style/submitForm"
-            android:hint="@string/confirmPassword"/>
+            android:hint="@string/confirmPassword"
+            android:inputType="textPassword"/>
 
         <CheckBox
             android:layout_width="match_parent"

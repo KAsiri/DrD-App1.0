@@ -1,5 +1,7 @@
 package khalidalasiri.drd10;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.TextUtils;
@@ -32,15 +34,22 @@ class LoginAsync extends AsyncTask<String, Integer, String[]> {
     private URL url;
     private HttpURLConnection httpURLConnection;
     private List<HttpCookie> token;
-    ProgressBar bar;
+    ProgressDialog progressDialog ;
+    Context context;
 
-    public LoginAsync(List<HttpCookie> token) {
+    public LoginAsync(List<HttpCookie> token, Context context) {
         this.token = token;
+        this.context = context ;
     }
 
-    public void setProgressBar(ProgressBar bar) {
-        this.bar = bar;
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Login");
+        progressDialog.show();
     }
+
     @Override
     protected String[] doInBackground(String... strings) {
         String password;
@@ -103,18 +112,9 @@ class LoginAsync extends AsyncTask<String, Integer, String[]> {
         return null;
     }
 
-
-
-    @Override
-    protected void onProgressUpdate(Integer... values) {
-        super.onProgressUpdate(values);
-        bar.setProgress(values[0]);
-    }
-
     @Override
     protected void onPostExecute(String[] strings) {
         super.onPostExecute(strings);
-        bar.setProgress(0);
-        bar.setVisibility(View.INVISIBLE);
+        progressDialog.dismiss();
     }
 }

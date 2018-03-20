@@ -16,6 +16,14 @@
     </style>
 
 
+    <style name="Titles">
+        <item name="android:layout_margin">@dimen/dp5</item>
+        <item name="android:padding">@dimen/dp5</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/spTitle</item>
+
+    </style>
+
     <style name="submitForm">
         <item name="android:background">@drawable/border</item>
         <item name="android:layout_margin">@dimen/dp10</item>
@@ -30,6 +38,7 @@
     <style name="mainButton">
         <item name="android:background">@drawable/main_button</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/spTitle</item>
         <item name="android:layout_margin">@dimen/dp10</item>
     </style>
 

@@ -26,4 +26,6 @@
     <string name="personalInfo">Personal Information</string>
     <string name="confirmPassword">Confirm Password</string>
     <string name="termsPrivacy"><![CDATA[Terms & Privacy]]></string>
+    <string name="error_noInternet">Error: Check the Internet Connectivity</string>
+    <string name="registerByEmail">Register By Email</string>
 </resources>

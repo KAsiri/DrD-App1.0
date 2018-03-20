@@ -13,18 +13,6 @@
             android:background="@drawable/logo"
             android:contentDescription="@string/logo" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp50">
-            <ProgressBar
-                android:id="@+id/login_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"/>
-
-        </FrameLayout>
-
         <android.support.v7.widget.AppCompatAutoCompleteTextView
             android:id="@+id/actvEmail"
             style="@style/submitForm"

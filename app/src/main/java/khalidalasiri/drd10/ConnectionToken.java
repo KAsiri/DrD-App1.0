@@ -1,7 +1,10 @@
 package khalidalasiri.drd10;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +30,21 @@ public class ConnectionToken extends AsyncTask<String,Void,List<HttpCookie> >{
     String server_response;
     static final String COOKIES_HEADER = "Set-Cookie";
     static java.net.CookieManager msCookieManager = new java.net.CookieManager();
+    ProgressDialog progressDialog ;
+    Context context;
+
+    public ConnectionToken (Context context)
+    {
+        this.context = context ;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Connect to the Server");
+        progressDialog.show();
+    }
 
     @Override
     protected List<HttpCookie> doInBackground(String... strings) {
@@ -45,6 +63,8 @@ public class ConnectionToken extends AsyncTask<String,Void,List<HttpCookie> >{
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        // ToDO check the Internet Connection
 
         try {
             url = new URL(strings[0]);
@@ -86,8 +106,7 @@ public class ConnectionToken extends AsyncTask<String,Void,List<HttpCookie> >{
     @Override
     protected void onPostExecute(List<HttpCookie> s) {
         super.onPostExecute(s);
-        Log.e("Response", "" + server_response);
-
+        progressDialog.dismiss();
     }
 
 // Converting InputStream to String
