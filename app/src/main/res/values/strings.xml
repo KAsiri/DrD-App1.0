@@ -26,4 +26,5 @@
     <string name="loginToAccount"><u>or Login to your account</u></string>
     <string name="passwordNotMatch">Password are not matched</string>
     <string name="reqiredFiled">please fill all the required fields</string>
+    <string name="error_usernameExist">The Username is already exist, Please Try another one</string>
 </resources>

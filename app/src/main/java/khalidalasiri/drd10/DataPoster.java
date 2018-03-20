@@ -1,5 +1,7 @@
 package khalidalasiri.drd10;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,12 +25,24 @@ import java.util.List;
  * Created by kasir on 3/6/2018.
  */
 
-public class DataPoster extends AsyncTask<String,String,String> {
+public class DataPoster extends AsyncTask<String,Void,String> {
 
     List<HttpCookie> token ;
-
-    public DataPoster(List<HttpCookie>  token) {
+    String tableURL;
+    ProgressDialog progressDialog ;
+    Context context;
+    public DataPoster(String tableURL ,List<HttpCookie>  token,Context context) {
         this.token = token;
+        this.tableURL = tableURL;
+        this.context = context;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Please wait while connecting");
+        progressDialog.show();
     }
 
     @Override
@@ -42,7 +56,7 @@ public class DataPoster extends AsyncTask<String,String,String> {
         try {
             String key = token.get(1).toString().replace("XSRF-TOKEN=","");
             Log.d("token",key);
-            url = new URL("http://drd-ksa.com/drdAPI/api.php/User_Information?csrf="+key);
+            url = new URL(tableURL+"?csrf="+key);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
@@ -86,5 +100,6 @@ public class DataPoster extends AsyncTask<String,String,String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        progressDialog.dismiss();
     }
 }

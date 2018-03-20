@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private List<HttpCookie> token;
     String connection_url;
     String message[];
+    String tableURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
         btRegister = findViewById(R.id.btRegister);
         message = new String[3];
         final Context context = this;
+
+        // Table URL
+        tableURL = "http://drd-ksa.com/drdAPI/api.php/User_Information";
 
         btLogin.setOnClickListener(new OnClickListener() {
             @Override
@@ -82,7 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                                 token = connectionToken.execute(connection_url).get();
 
                                 LoginAsync loginAsync = new LoginAsync(token, context);
-                                message = loginAsync.execute("http://drd-ksa.com/drdAPI/api.php/User_Information?filter=Username,eq,"
+                                String key = token.get(1).toString().replace("XSRF-TOKEN=","");
+                                message = loginAsync.execute(tableURL+"?csrf="+key+"&filter=Username,eq,"
                                                 + mEmailView.getText().toString().replaceAll("\\s", ""),
                                         etPassword.getText().toString()).get();
 

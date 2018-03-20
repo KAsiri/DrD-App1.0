@@ -46,7 +46,7 @@ class LoginAsync extends AsyncTask<String, Integer, String[]> {
     protected void onPreExecute() {
         super.onPreExecute();
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Login");
+        progressDialog.setMessage("Please wait while connecting");
         progressDialog.show();
     }
 

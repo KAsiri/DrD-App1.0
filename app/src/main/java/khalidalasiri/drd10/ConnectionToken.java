@@ -64,7 +64,6 @@ public class ConnectionToken extends AsyncTask<String,Void,List<HttpCookie> >{
             e.printStackTrace();
         }
 
-        // ToDO check the Internet Connection
 
         try {
             url = new URL(strings[0]);
