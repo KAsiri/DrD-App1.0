@@ -84,7 +84,6 @@ class LoginAsync extends AsyncTask<String, Integer, String[]> {
                 result[0] = "Invalid Login";
                 return result;
             } else {
-                Log.d("print", password);
                 if (password.equals(records.getJSONArray(0).get(8).toString())) {
                     //Log.d("print", "Login Successfully");
 

@@ -15,41 +15,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/registerMessage"
-            style="@style/Titles"/>
+            style="@style/Titles" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/registerByEmail"
-            style="@style/Titles"/>
+            style="@style/Titles2"/>
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/etUsername"
             style="@style/submitForm"
             android:hint="@string/username"/>
         <EditText
-            android:id="@+id/fristname"
+            android:id="@+id/etEmail"
             style="@style/submitForm"
-            android:hint="@string/label_email"/>
+            android:hint="@string/label_email"
+            android:inputType="textEmailAddress" />
+
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/etPassword"
             style="@style/submitForm"
             android:hint="@string/label_password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
         <EditText
-            android:id="@+id/confirmPassword"
+            android:id="@+id/etConfirmPassword"
             style="@style/submitForm"
             android:hint="@string/confirmPassword"
             android:inputType="textPassword"/>
 
         <CheckBox
-            android:layout_width="match_parent"
+            android:id="@+id/checkboxTP"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp20"
-            android:layout_marginLeft="@dimen/dp20"
             android:text="@string/termsPrivacy"
             android:textStyle="bold"
             android:textColor="@color/red"
-            android:padding="@dimen/dp5"/>
+            android:padding="@dimen/dp5"
+            android:layout_gravity="center"/>
 
         <Button
             android:id="@+id/btRegister"
@@ -60,8 +62,17 @@
             android:layout_gravity="center"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/loginToAccount"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:textSize="@dimen/spTitle"
+            android:textColor="@color/green"
+            android:gravity="center"
+            android:onClick="LoginPage"
+            android:clickable="true" />
 
 
     </LinearLayout>
 </ScrollView>
+

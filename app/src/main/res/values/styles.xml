@@ -24,6 +24,14 @@
 
     </style>
 
+    <style name="Titles2">
+        <item name="android:padding">@dimen/dp5</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:background">@color/blueLight</item>
+        <item name="android:textSize">@dimen/spTitle</item>
+
+    </style>
+
     <style name="submitForm">
         <item name="android:background">@drawable/border</item>
         <item name="android:layout_margin">@dimen/dp10</item>

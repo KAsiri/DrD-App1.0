@@ -9,11 +9,6 @@
     <string name="remember_me">Remember me</string>
     <string name="newUser">New User?</string>
     <string name="register">Register</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="logo">Dr. D Logo</string>
 
     <!-- Strings related to Registration -->
@@ -28,4 +23,7 @@
     <string name="termsPrivacy"><![CDATA[Terms & Privacy]]></string>
     <string name="error_noInternet">Error: Check the Internet Connectivity</string>
     <string name="registerByEmail">Register By Email</string>
+    <string name="loginToAccount"><u>or Login to your account</u></string>
+    <string name="passwordNotMatch">Password are not matched</string>
+    <string name="reqiredFiled">please fill all the required fields</string>
 </resources>

@@ -8,5 +8,6 @@
     <dimen name="imageHW">150dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="spTitle">18sp</dimen>
+    <dimen name="spTitle2">16sp</dimen>
 
 </resources>
