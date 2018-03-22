@@ -4,43 +4,262 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="khalidalasiri.drd10.CompleteRegistration"
-    android:background="@drawable/app_background">
+    android:background="@drawable/app_background_image"
+    tools:context="khalidalasiri.drd10.CompleteRegistration">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
+            style="@style/Titles2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp5"
-            android:layout_margin="@dimen/dp5"
-            android:text="@string/personalInfo"
-            android:textColor="@color/red"
-            android:textSize="@dimen/spTitle"/>
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/personalInfo" />
 
-        <EditText
-            android:id="@+id/username"
-            style="@style/submitForm"
-            android:hint="@string/username"/>
         <EditText
             android:id="@+id/fristname"
             style="@style/submitForm"
-            android:hint="@string/fristname"/>
+            android:hint="@string/fristname" />
+
         <EditText
             android:id="@+id/fathername"
             style="@style/submitForm"
-            android:hint="@string/fathername"/>
+            android:hint="@string/fathername" />
+
         <EditText
             android:id="@+id/grandfathername"
             style="@style/submitForm"
-            android:hint="@string/grandfathername"/>
+            android:hint="@string/grandfathername" />
+
+        <EditText
+            android:id="@+id/etDOB"
+            style="@style/submitForm"
+            android:hint="@string/dob" />
+
         <EditText
             android:id="@+id/familyname"
             style="@style/submitForm"
-            android:hint="@string/familyname"/>
+            android:hint="@string/familyname" />
 
+        <EditText
+            android:id="@+id/etPhone"
+            style="@style/submitForm"
+            android:hint="@string/phone"
+            android:inputType="phone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/idTypes" />
+
+            <Spinner
+                android:id="@+id/spinnerIdType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5"
+                android:layout_weight="1">
+
+            </Spinner>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etID"
+            style="@style/submitForm"
+            android:hint="@string/id" />
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/addressInfo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/countries" />
+
+            <Spinner
+                android:id="@+id/spinnerCountries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5"
+                android:layout_weight="1">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/cities" />
+
+            <Spinner
+                android:id="@+id/spinnerCities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5"
+                android:layout_weight="1">
+
+            </Spinner>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etNeighborhood"
+            style="@style/submitForm"
+            android:hint="@string/neighborhood" />
+
+        <EditText
+            android:id="@+id/etStreet"
+            style="@style/submitForm"
+            android:hint="@string/street" />
+
+        <EditText
+            android:id="@+id/etBuilding"
+            style="@style/submitForm"
+            android:hint="@string/building" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etPostal"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/postal" />
+
+            <EditText
+                android:id="@+id/etAddition"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/addition" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/patientInfo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/sex" />
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/typeOfD" />
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/typeOfBlood" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinnerSex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5"
+                android:layout_weight="1">
+
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/spinnerTypeOfD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5"
+                android:layout_weight="1">
+
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/spinnerTypeOfBlood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etWeight"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/weight" />
+
+            <EditText
+                android:id="@+id/etHeight"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/height" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btSave"
+            style="@style/secondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
     </LinearLayout>
-
 </ScrollView>

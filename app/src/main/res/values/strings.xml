@@ -27,4 +27,24 @@
     <string name="passwordNotMatch">Password are not matched</string>
     <string name="reqiredFiled">please fill all the required fields</string>
     <string name="error_usernameExist">The Username is already exist, Please Try another one</string>
+    <string name="phone">Phone</string>
+    <string name="id">ID</string>
+    <string name="idTypes">ID Type</string>
+    <string name="onlyPD">Sorry This app for the Doctors and Patients, you can Login from our website</string>
+    <string name="dob">Date of Birth</string>
+    <string name="addressInfo">Address Information</string>
+    <string name="neighborhood">Neighborhood</string>
+    <string name="street">Street Name</string>
+    <string name="building">Building Number</string>
+    <string name="postal">Postal Code</string>
+    <string name="addition">Addition Code</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="patientInfo">Patient Information</string>
+    <string name="sex">Sex</string>
+    <string name="typeOfBlood">Type Of Blood</string>
+    <string name="typeOfD">Type Of Diabetes</string>
+    <string name="countries">Country</string>
+    <string name="cities">City</string>
+    <string name="save">Save</string>
 </resources>

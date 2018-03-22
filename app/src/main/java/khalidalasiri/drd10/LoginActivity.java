@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
- * A login screen that offers login via email/password.
+ * A login screen that offers login via username/password.
  */
 public class LoginActivity extends AppCompatActivity {
 
@@ -72,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if ((!etPassword.getText().toString().isEmpty()) && (!mEmailView.getText().toString().isEmpty())) {
-
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
                     NetworkInfo ni = null;
                     if (cm != null) {
@@ -80,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (ni != null && ni.isConnected()) {
                             try {
-
                                 connection_url = "http://drd-ksa.com/drdAPI/AppAPI/api.php/";
                                 ConnectionToken connectionToken = new ConnectionToken(context);
                                 token = connectionToken.execute(connection_url).get();
@@ -90,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
                                 message = loginAsync.execute(tableURL+"?csrf="+key+"&filter=Username,eq,"
                                                 + mEmailView.getText().toString().replaceAll("\\s", ""),
                                         etPassword.getText().toString()).get();
-
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             } catch (ExecutionException e) {
@@ -99,24 +96,24 @@ public class LoginActivity extends AppCompatActivity {
                             if (message[0].equals("Invalid Password") || message[0].equals("Invalid Login")) {
                                 Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
                             } else if (message[0].equals("Login Successfully")) {
-                                Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
                                 if (message[2].equals("3")) {
+                                    Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
                                     Intent userDB = new Intent(LoginActivity.this, PatientDashboard.class);
                                     userDB.putExtra("ID", message[1]);
                                     startActivity(userDB);
                                 } else if (message[2].equals("2")) {
+                                    Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
                                     Intent userDB = new Intent(LoginActivity.this, DoctorDashboard.class);
                                     userDB.putExtra("ID", message[1]);
                                     startActivity(userDB);
                                 }
+                                else
+                                    Toast.makeText(getApplicationContext(), R.string.onlyPD, Toast.LENGTH_LONG).show();
                             }
-
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.error_noInternet), Toast.LENGTH_LONG).show();
                         }
                     }
-
-
                 } else
                     Toast.makeText(getApplicationContext(), "Empty", Toast.LENGTH_SHORT).show();
             }
