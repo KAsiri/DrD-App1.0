@@ -25,24 +25,20 @@
             android:hint="@string/fristname" />
 
         <EditText
-            android:id="@+id/fathername"
+            android:id="@+id/middlename"
             style="@style/submitForm"
-            android:hint="@string/fathername" />
+            android:hint="@string/middlename" />
 
         <EditText
-            android:id="@+id/grandfathername"
+            android:id="@+id/lastname"
             style="@style/submitForm"
-            android:hint="@string/grandfathername" />
+            android:hint="@string/lastname" />
 
         <EditText
             android:id="@+id/etDOB"
             style="@style/submitForm"
-            android:hint="@string/dob" />
-
-        <EditText
-            android:id="@+id/familyname"
-            style="@style/submitForm"
-            android:hint="@string/familyname" />
+            android:hint="@string/dob"
+            android:inputType="date" />
 
         <EditText
             android:id="@+id/etPhone"
@@ -77,6 +73,7 @@
             android:id="@+id/etID"
             style="@style/submitForm"
             android:hint="@string/id" />
+
 
         <TextView
             style="@style/Titles2"
@@ -244,12 +241,14 @@
 
             <EditText
                 android:id="@+id/etWeight"
+                android:inputType="numberSigned"
                 style="@style/submitForm"
                 android:layout_weight="1"
                 android:hint="@string/weight" />
 
             <EditText
                 android:id="@+id/etHeight"
+                android:inputType="numberSigned"
                 style="@style/submitForm"
                 android:layout_weight="1"
                 android:hint="@string/height" />

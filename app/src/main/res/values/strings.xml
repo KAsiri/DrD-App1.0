@@ -15,9 +15,8 @@
     <string name="registerMessage">Welcome, This Registration is for Patient only , if you are Doctor or Hospital please visit our website.</string>
     <string name="username">Username</string>
     <string name="fristname">Frist Name</string>
-    <string name="fathername">Father Name</string>
-    <string name="grandfathername">Grandfather Name</string>
-    <string name="familyname">Family Name</string>
+    <string name="middlename">Middle Name</string>
+    <string name="lastname">Last Name</string>
     <string name="personalInfo">Personal Information</string>
     <string name="confirmPassword">Confirm Password</string>
     <string name="termsPrivacy"><![CDATA[Terms & Privacy]]></string>
@@ -47,4 +46,10 @@
     <string name="countries">Country</string>
     <string name="cities">City</string>
     <string name="save">Save</string>
+    <string name="selectUrCoun">Select your Country(Required)</string>
+    <string name="selectUridType">Select Your ID Type</string>
+    <string name="selectUrCit">Select Your City</string>
+    <string name="error_requiredField">Please complete the requireds field</string>
+    <string name="dataSavedSuccessfully">Data saved successfully</string>
+    <string name="error_notSaved">Data not saved, Please Try again</string>
 </resources>

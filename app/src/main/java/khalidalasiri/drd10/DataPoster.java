@@ -31,10 +31,12 @@ public class DataPoster extends AsyncTask<String,Void,String> {
     String tableURL;
     ProgressDialog progressDialog ;
     Context context;
-    public DataPoster(String tableURL ,List<HttpCookie>  token,Context context) {
+    String method;
+    public DataPoster(String tableURL ,String method,List<HttpCookie>  token,Context context) {
         this.token = token;
         this.tableURL = tableURL;
         this.context = context;
+        this.method = method;
     }
 
     @Override
@@ -58,7 +60,7 @@ public class DataPoster extends AsyncTask<String,Void,String> {
             Log.d("token",key);
             url = new URL(tableURL+"?csrf="+key);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod(method);
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setRequestProperty("Cookie", TextUtils.join(";",token));

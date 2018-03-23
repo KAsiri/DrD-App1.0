@@ -43,13 +43,13 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         context = this;
         message = new String[3];
+        tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/User_Information";
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
         btRegister = findViewById(R.id.btRegister);
         checkBoxTP = findViewById(R.id.checkboxTP);
-        tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/User_Information";
         // Register button clicked
         btRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +95,7 @@ public class Registration extends AppCompatActivity {
                                         }
 
                                         //Post the Data
-                                        DataPoster dataPoster = new DataPoster(tableURL,token,context);
+                                        DataPoster dataPoster = new DataPoster(tableURL,"POST",token,context);
                                         userID = dataPoster.execute(jsonData.toString()).get();
                                         // Go to the next page
                                         Intent toCompleteRegistration = new Intent(Registration.this, CompleteRegistration.class);
