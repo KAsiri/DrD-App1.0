@@ -145,11 +145,16 @@ public class CompleteRegistration extends AppCompatActivity {
                                 DataPoster dataPoster2 = new DataPoster(tableURL,"POST",token,context);
                                 String respond2 = dataPoster2.execute(jsonData2.toString()).get();
 
+                                // TODO: 3/23/2018
+                                // Create 3 spinner for get the date of birth and save it in String dob in yyyy-mm-dd format
 
                                 // encode the data into JSon for Patient table
                                 JSONObject jsonData3 = new JSONObject();
                                 try {
                                     jsonData3.put("UserID", userID);
+                                    // TODO: 3/24/2018
+                                    // there is problem on submit the DOB
+
                                     jsonData3.put("DateOfBirth", etDOB.getText().toString());
                                     jsonData3.put("Sex", spinnerSex.getSelectedItem().toString());
                                     jsonData3.put("TypeOfDiabetes", spinnerTypeOfD.getSelectedItem().toString());
@@ -187,10 +192,15 @@ public class CompleteRegistration extends AppCompatActivity {
                                 Log.d("respond2:",respond3);
                                 Log.d("respond3:",respond4);
 
-                                if(respond.equals("1"))
+                                // TODO: 3/23/2018      Done
+                                // fix the if statement
+                                if(!respond.isEmpty())
                                 {
                                     Toast.makeText(getApplicationContext(), R.string.dataSavedSuccessfully, Toast.LENGTH_SHORT).show();
                                     // Go to the next page
+                                    Intent userDB = new Intent(CompleteRegistration.this, PatientDashboard.class);
+                                    userDB.putExtra("ID", userID);
+                                    startActivity(userDB);
                                 }
                                 else
                                     Toast.makeText(getApplicationContext(), R.string.error_notSaved, Toast.LENGTH_SHORT).show();
