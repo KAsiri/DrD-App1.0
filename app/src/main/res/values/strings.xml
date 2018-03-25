@@ -14,7 +14,7 @@
     <!-- Strings related to Registration -->
     <string name="registerMessage">Welcome, This Registration is for Patient only , if you are Doctor or Hospital please visit our website.</string>
     <string name="username">Username</string>
-    <string name="fristname">Frist Name</string>
+    <string name="fristname">Frist Name (Required)</string>
     <string name="middlename">Middle Name</string>
     <string name="lastname">Last Name</string>
     <string name="personalInfo">Personal Information</string>
@@ -30,7 +30,7 @@
     <string name="id">ID</string>
     <string name="idTypes">ID Type</string>
     <string name="onlyPD">Sorry This app for the Doctors and Patients, you can Login from our website</string>
-    <string name="dob">Date of Birth</string>
+    <string name="dob">Date of Birth (Required)</string>
     <string name="addressInfo">Address Information</string>
     <string name="neighborhood">Neighborhood</string>
     <string name="street">Street Name</string>
