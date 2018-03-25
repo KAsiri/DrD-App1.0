@@ -18,6 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.HttpCookie;
+import java.util.Date ;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
@@ -152,10 +154,12 @@ public class CompleteRegistration extends AppCompatActivity {
                                 JSONObject jsonData3 = new JSONObject();
                                 try {
                                     jsonData3.put("UserID", userID);
-                                    // TODO: 3/24/2018
-                                    // there is problem on submit the DOB
+                                    // TODO: 3/24/2018 Done
+                                    // there is problem on submit the DOB, the problem was in database
 
-                                    jsonData3.put("DateOfBirth", etDOB.getText().toString());
+                                    Date dob = new SimpleDateFormat("dd-mm-yyyy").parse(etDOB.getText().toString());
+
+                                    jsonData3.put("DateOfBirth", new SimpleDateFormat("yyyy-MM-dd").format(dob));
                                     jsonData3.put("Sex", spinnerSex.getSelectedItem().toString());
                                     jsonData3.put("TypeOfDiabetes", spinnerTypeOfD.getSelectedItem().toString());
                                     jsonData3.put("Weight", etWeight.getText().toString());
@@ -163,6 +167,8 @@ public class CompleteRegistration extends AppCompatActivity {
                                     jsonData3.put("BloodType", spinnerTypeOfBlood.getSelectedItem().toString());
 
                                 } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
 

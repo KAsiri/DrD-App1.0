@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="khalidalasiri.drd10.PatientDashboard">
+    tools:context="khalidalasiri.drd10.PatientDashboard"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -12,5 +13,11 @@
         android:text="Hello Patient"
         android:layout_gravity="center"
         android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/btProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"/>
 
 </LinearLayout>
