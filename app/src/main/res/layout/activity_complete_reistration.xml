@@ -13,10 +13,17 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/Titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/fillAllRequired" />
+
+        <TextView
             style="@style/Titles2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
             android:text="@string/personalInfo" />
 
         <EditText
@@ -173,6 +180,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
             android:orientation="horizontal">
 
             <TextView
@@ -204,7 +213,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp5"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
             android:orientation="horizontal">
 
             <Spinner
@@ -241,17 +251,17 @@
 
             <EditText
                 android:id="@+id/etWeight"
-                android:inputType="numberSigned"
                 style="@style/submitForm"
                 android:layout_weight="1"
-                android:hint="@string/weight" />
+                android:hint="@string/weight"
+                android:inputType="numberSigned" />
 
             <EditText
                 android:id="@+id/etHeight"
-                android:inputType="numberSigned"
                 style="@style/submitForm"
                 android:layout_weight="1"
-                android:hint="@string/height" />
+                android:hint="@string/height"
+                android:inputType="numberSigned" />
         </LinearLayout>
 
         <Button

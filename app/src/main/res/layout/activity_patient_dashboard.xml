@@ -1,23 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="khalidalasiri.drd10.PatientDashboard"
-    android:orientation="vertical">
+    android:layout_margin="@dimen/dp5"
+    tools:context="khalidalasiri.drd10.PatientDashboard">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello Patient"
-        android:layout_gravity="center"
-        android:textAlignment="center"/>
+    <ListView
+        android:id="@+id/lvDailyReport"
+        android:layout_width="@dimen/dp160"
+        android:layout_height="@dimen/dp160"
+        android:layout_marginBottom="@dimen/dp20"
+        android:layout_marginLeft="@dimen/dp15"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btHistory"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+    </ListView>
+
+    <com.github.mikephil.charting.charts.BarChart
+
+        android:id="@+id/bcAvarage"
+        android:layout_width="@dimen/dp160"
+        android:layout_height="@dimen/dp160"
+        android:layout_marginBottom="@dimen/dp15"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btReport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lvDailyReport"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </com.github.mikephil.charting.charts.BarChart>
     <Button
         android:id="@+id/btProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"/>
+        style="@style/mainButton"
+        android:layout_width="@dimen/dp160"
+        android:layout_height="@dimen/dp100"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:drawableTop="@drawable/profile"
+        android:padding="@dimen/dp5"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btReport"
+        style="@style/mainButton"
+        android:layout_width="@dimen/dp160"
+        android:layout_height="@dimen/dp100"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:drawableTop="@drawable/new__report"
+        android:padding="@dimen/dp5"
+        android:text="@string/report"
+        app:layout_constraintBottom_toTopOf="@+id/btProfile"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btHistory"
+        style="@style/mainButton"
+        android:layout_width="@dimen/dp160"
+        android:layout_height="@dimen/dp100"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp10"
+        android:drawableTop="@drawable/history"
+        android:padding="@dimen/dp5"
+        android:text="@string/history"
+        app:layout_constraintBottom_toTopOf="@+id/btDoctor"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btDoctor"
+        style="@style/mainButton"
+        android:layout_width="@dimen/dp160"
+        android:layout_height="@dimen/dp100"
+        android:layout_marginBottom="@dimen/dp30"
+        android:layout_marginLeft="@dimen/dp15"
+        android:layout_marginStart="@dimen/dp15"
+        android:drawableTop="@drawable/doctor_icon"
+        android:padding="@dimen/dp5"
+        android:text="@string/myDoctor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
