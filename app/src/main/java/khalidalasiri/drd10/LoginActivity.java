@@ -99,12 +99,12 @@ public class LoginActivity extends AppCompatActivity {
                                 if (message[2].equals("3")) {
                                     Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
                                     Intent userDB = new Intent(LoginActivity.this, PatientDashboard.class);
-                                    userDB.putExtra("ID", message[1]);
+                                    userDB.putExtra("userID", message[1]);
                                     startActivity(userDB);
                                 } else if (message[2].equals("2")) {
                                     Toast.makeText(getApplicationContext(), message[0], Toast.LENGTH_SHORT).show();
                                     Intent userDB = new Intent(LoginActivity.this, DoctorDashboard.class);
-                                    userDB.putExtra("ID", message[1]);
+                                    userDB.putExtra("userID", message[1]);
                                     startActivity(userDB);
                                 }
                                 else

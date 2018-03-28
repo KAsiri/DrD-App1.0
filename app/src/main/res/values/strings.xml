@@ -57,4 +57,7 @@
     <string name="history">Report History</string>
     <string name="report">New Report</string>
     <string name="profile">My Profile</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="feedback">Feedback</string>
 </resources>
