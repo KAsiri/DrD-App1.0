@@ -10,7 +10,7 @@
         android:orientation="vertical">
         <ImageView
             style="@style/imageStyle"
-            android:background="@drawable/logo"
+            android:background="@drawable/drd_13"
             android:contentDescription="@string/logo" />
 
         <android.support.v7.widget.AppCompatAutoCompleteTextView

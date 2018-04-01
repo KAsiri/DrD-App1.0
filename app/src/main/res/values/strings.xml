@@ -60,4 +60,9 @@
     <string name="setting">Setting</string>
     <string name="logout">Logout</string>
     <string name="feedback">Feedback</string>
+    <string name="newReport">New Report</string>
+    <string name="BloodPressure">Blood Pressure</string>
+    <string name="BloodGlucose">Blood Glucose</string>
+    <string name="HeartRate">Heart Rate</string>
+    <string name="submit">Submit</string>
 </resources>

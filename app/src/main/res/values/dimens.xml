@@ -13,5 +13,7 @@
     <dimen name="dp100">100dp</dimen>
     <dimen name="spTitle">18sp</dimen>
     <dimen name="spTitle2">16sp</dimen>
+    <dimen name="dp220">220dp</dimen>
+    <dimen name="dp170">170dp</dimen>
 
 </resources>

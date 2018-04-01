@@ -3,7 +3,7 @@
     package="khalidalasiri.drd10">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/drd_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -28,13 +28,20 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"/>
-        <activity android:name=".PatientDashboard" />
-        <activity android:name=".DoctorDashboard" />
-        <activity android:name=".Registration"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"/>
-        <activity android:name=".CompleteRegistration"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"/>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan" />
+        <activity
+            android:name=".PatientDashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorDashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registration"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan" />
+        <activity
+            android:name=".CompleteRegistration"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan" />
+        <activity android:name=".PatientReport"></activity>
     </application>
 
 </manifest>

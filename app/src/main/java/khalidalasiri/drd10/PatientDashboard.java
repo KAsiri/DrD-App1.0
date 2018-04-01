@@ -51,13 +51,21 @@ public class PatientDashboard extends AppCompatActivity {
         } else {
             userID = (String) savedInstanceState.getSerializable("userID");
         }
+        // initial the views
         btProfile = findViewById(R.id.btProfile);
+        btReport = findViewById(R.id.btReport);
+        btDoctor = findViewById(R.id.btDoctor);
+        btHistory = findViewById(R.id.btHistory);
         toolbar = findViewById(R.id.toolbar);
         tvUserName = findViewById(R.id.tvUserName);
 
         tvUserName.setText("Hello, "+userID);
 
+        // add action to buttons
         btProfile.setOnClickListener(onClickListener);
+        btHistory.setOnClickListener(onClickListener);
+        btDoctor.setOnClickListener(onClickListener);
+        btReport.setOnClickListener(onClickListener);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -121,6 +129,21 @@ public class PatientDashboard extends AppCompatActivity {
                     Intent userDB = new Intent(PatientDashboard.this, CompleteRegistration.class);
                     userDB.putExtra("ID", userID);
                     startActivity(userDB);
+                    break;
+                case R.id.btDoctor:
+                    Intent myDoctor = new Intent(PatientDashboard.this, CompleteRegistration.class);
+                    myDoctor.putExtra("ID", userID);
+                    startActivity(myDoctor);
+                    break;
+                case R.id.btReport:
+                    Intent newReport = new Intent(PatientDashboard.this, PatientReport.class);
+                    newReport.putExtra("ID", userID);
+                    startActivity(newReport);
+                    break;
+                case R.id.btHistory:
+                    Intent reportHistory = new Intent(PatientDashboard.this, CompleteRegistration.class);
+                    reportHistory.putExtra("ID", userID);
+                    startActivity(reportHistory);
                     break;
 
             }
