@@ -2,12 +2,8 @@ package khalidalasiri.drd10;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,23 +19,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by kasir on 3/19/2018.
  */
 
-class LoginAsync extends AsyncTask<String, Void, String[]> {
+class GetAsync extends AsyncTask<String, Void, String[]> {
 
+    private String tableURL;
     private URL url;
+    private String primaryKey;
+    private String columnName;
+    private int index;
+    private String tableName;
     private HttpURLConnection httpURLConnection;
     private List<HttpCookie> token;
     ProgressDialog progressDialog ;
     Context context;
 
-    public LoginAsync(List<HttpCookie> token, Context context) {
+    public GetAsync(List<HttpCookie> token, Context context,String tableURL,String tableName) {
         this.token = token;
         this.context = context ;
+        this.tableURL = tableURL;
+        this.tableName = tableName;
     }
 
     @Override
@@ -52,12 +54,13 @@ class LoginAsync extends AsyncTask<String, Void, String[]> {
 
     @Override
     protected String[] doInBackground(String... strings) {
-        String password;
 
         try {
-            Log.d("print","Check");
-            password = strings[1];
-            url = new URL(strings[0]);
+            primaryKey = strings[0];
+            index = Integer.parseInt(strings[1]);
+            columnName = strings[2];
+            String key = token.get(1).toString().replace("XSRF-TOKEN=","");
+            url = new URL(tableURL+"?csrf="+key+"&filter="+columnName+",eq,"+ primaryKey);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
@@ -76,27 +79,17 @@ class LoginAsync extends AsyncTask<String, Void, String[]> {
             }
 
             JSONObject root = new JSONObject(builder.toString());
-            JSONObject User_Information = root.getJSONObject("User_Information");
+            JSONObject User_Information = root.getJSONObject(tableName);
             JSONArray records = User_Information.getJSONArray("records");
 
-            String result[] = new String[3];
+            String result[] = new String[2];
             if (records.isNull(0)) {
-                result[0] = "Invalid Login";
+                result[0] = null;
                 return result;
             } else {
-                if (password.equals(records.getJSONArray(0).get(8).toString())) { // match the password
-                    //Log.d("print", "Login Successfully");
-
-                    result[0] = "Login Successfully";
-                    result[1] = records.getJSONArray(0).get(0).toString() ; // The user ID
-                    result[2] = records.getJSONArray(0).get(9).toString() ;
-                    return result;
-                }
-                else {
-                    //Log.d("print", "Invalid Password");
-                    result[0] = "Invalid Password";
-                    return result;
-                }
+                result[0] = "OK";
+                result[1] = records.getJSONArray(0).get(index).toString() ; // The Patient ID
+                return result;
 
             }
 

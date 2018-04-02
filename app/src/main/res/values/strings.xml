@@ -65,4 +65,6 @@
     <string name="BloodGlucose">Blood Glucose</string>
     <string name="HeartRate">Heart Rate</string>
     <string name="submit">Submit</string>
+    <string name="error_getValue">Error getting the Value</string>
+    <string name="error_noDoctorSelected">No doctor selected, You can select the Doctor from \"MyDoctor\"</string>
 </resources>

@@ -19,12 +19,9 @@
 
             <Button
                 android:id="@+id/home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity=""
-                android:layout_margin="@dimen/dp5"
-                android:padding="@dimen/dp5"
-                android:text="Back" />
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:background="@drawable/home_page" />
 
         </LinearLayout>
 

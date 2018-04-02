@@ -61,16 +61,14 @@
         style="@style/mainButton"
         android:layout_width="@dimen/dp170"
         android:layout_height="@dimen/dp100"
-        android:layout_marginBottom="32dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
         android:drawableTop="@drawable/profile"
         android:padding="@dimen/dp5"
         android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btDoctor"
-        android:layout_marginLeft="@dimen/dp10" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/btReport"
@@ -92,15 +90,13 @@
         android:layout_width="@dimen/dp170"
         android:layout_height="@dimen/dp100"
         android:layout_marginBottom="@dimen/dp10"
-        android:layout_marginEnd="@dimen/dp10"
         android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp10"
         android:drawableTop="@drawable/history"
         android:padding="@dimen/dp5"
         android:text="@string/history"
         app:layout_constraintBottom_toTopOf="@+id/btDoctor"
-        app:layout_constraintEnd_toStartOf="@+id/btReport"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="@dimen/dp10" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/btDoctor"
@@ -108,8 +104,8 @@
         android:layout_width="@dimen/dp170"
         android:layout_height="@dimen/dp100"
         android:layout_marginBottom="@dimen/dp30"
-        android:layout_marginLeft="@dimen/dp15"
-        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp10"
         android:drawableTop="@drawable/doctor_icon"
         android:padding="@dimen/dp5"
         android:text="@string/myDoctor"
