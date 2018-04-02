@@ -18,19 +18,20 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/home"
+                android:id="@+id/btHome"
                 android:layout_width="@dimen/dp50"
                 android:layout_height="@dimen/dp50"
+                android:layout_marginEnd="@dimen/dp50"
+                android:layout_marginRight="@dimen/dp50"
                 android:background="@drawable/home_page" />
 
-        </LinearLayout>
+            <TextView
+                style="@style/Titles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newReport" />
 
-        <TextView
-            style="@style/Titles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/newReport" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

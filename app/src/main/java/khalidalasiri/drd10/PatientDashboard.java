@@ -175,23 +175,24 @@ public class PatientDashboard extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btProfile:
                     Intent userDB = new Intent(PatientDashboard.this, CompleteRegistration.class);
-                    userDB.putExtra("ID", userID);
+                    userDB.putExtra("userID", userID);
                     startActivity(userDB);
                     break;
                 case R.id.btDoctor:
-                    Intent myDoctor = new Intent(PatientDashboard.this, CompleteRegistration.class);
-                    myDoctor.putExtra("ID", userID);
+                    Intent myDoctor = new Intent(PatientDashboard.this, MyDoctor.class);
+                    myDoctor.putExtra("userID", userID);
+                    myDoctor.putExtra("PatientID",patientID);
                     startActivity(myDoctor);
                     break;
                 case R.id.btReport:
                     Intent newReport = new Intent(PatientDashboard.this, PatientReport.class);
-                    newReport.putExtra("ID", userID);
+                    newReport.putExtra("userID", userID);
                     newReport.putExtra("PatientID",patientID);
                     startActivity(newReport);
                     break;
                 case R.id.btHistory:
                     Intent reportHistory = new Intent(PatientDashboard.this, CompleteRegistration.class);
-                    reportHistory.putExtra("ID", userID);
+                    reportHistory.putExtra("userID", userID);
                     startActivity(reportHistory);
                     break;
 

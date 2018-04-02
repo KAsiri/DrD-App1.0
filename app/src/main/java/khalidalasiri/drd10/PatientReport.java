@@ -1,11 +1,15 @@
 package khalidalasiri.drd10;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.net.HttpCookie;
@@ -23,6 +27,12 @@ public class PatientReport extends AppCompatActivity {
     String message[];
     String tableURL;
     Context context;
+
+    Button btHome;
+    Button btSubmit;
+    EditText etBP;
+    EditText etBG;
+    EditText etHR;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +62,28 @@ public class PatientReport extends AppCompatActivity {
             patientID = (String) savedInstanceState.getSerializable("PatientID");
         }
 
+        // get the Doctor ID for this Patient
         doctorID = getDoctorID(patientID);
-
         if(doctorID != null)
         {
             Toast.makeText(getApplicationContext(),doctorID,Toast.LENGTH_LONG).show();
         }
-        else
-            Toast.makeText(getApplicationContext(),R.string.error_noDoctorSelected,Toast.LENGTH_LONG).show();
+        else {
+            Toast.makeText(getApplicationContext(), R.string.error_noDoctorSelected,Toast.LENGTH_LONG).show();
+        }
+
+        // initial the UI elements
+        btHome = findViewById(R.id.btHome);
+        btSubmit = findViewById(R.id.btSubmit);
+        etBP = findViewById(R.id.etBP);
+        etBG = findViewById(R.id.etBG);
+        etHR = findViewById(R.id.etHR);
+
+        // onClick
+        btHome.setOnClickListener(onClickListener);
+        btSubmit.setOnClickListener(onClickListener);
+
+
     }
 
     private String getDoctorID(String patientID) {
@@ -94,4 +118,35 @@ public class PatientReport extends AppCompatActivity {
 
         return null;
     }
+
+    final View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btHome:
+                    Intent home = new Intent(PatientReport.this, PatientDashboard.class);
+                    home.putExtra("userID", userID);
+                    home.putExtra("PatientID",patientID);
+                    startActivity(home);
+                    break;
+                case R.id.btSubmit:
+                    if(doctorID != null)
+                    {
+                        Toast.makeText(getApplicationContext(),doctorID,Toast.LENGTH_LONG).show();
+                        // TODO: 4/3/2018 Submit the Data
+
+                        Intent myDoctor = new Intent(PatientReport.this, PatientDashboard.class);
+                        myDoctor.putExtra("userID", userID);
+                        myDoctor.putExtra("PatientID",patientID);
+                        startActivity(myDoctor);
+                        break;
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), R.string.error_noDoctorSelected,Toast.LENGTH_LONG).show();
+                    }
+
+            }
+
+        }
+    };
 }

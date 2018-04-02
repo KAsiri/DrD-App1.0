@@ -41,7 +41,8 @@
         <activity
             android:name=".CompleteRegistration"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan" />
-        <activity android:name=".PatientReport"></activity>
+        <activity android:name=".PatientReport" />
+        <activity android:name=".MyDoctor"></activity>
     </application>
 
 </manifest>
