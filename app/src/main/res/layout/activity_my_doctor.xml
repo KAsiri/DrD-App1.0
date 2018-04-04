@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp5"
@@ -21,17 +21,21 @@
                 android:id="@+id/btHome"
                 android:layout_width="@dimen/dp50"
                 android:layout_height="@dimen/dp50"
-                android:layout_marginEnd="@dimen/dp50"
-                android:layout_marginRight="@dimen/dp50"
                 android:background="@drawable/home_page" />
 
             <TextView
                 style="@style/Titles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:text="@string/myDoctor" />
 
-        </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choice"/>
 
     </LinearLayout>
 

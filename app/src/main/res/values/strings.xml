@@ -54,7 +54,7 @@
     <string name="error_notSaved">Data not saved, Please Try again</string>
     <string name="fillAllRequired"> <b>* Please Fill all the required fields</b></string>
     <string name="myDoctor">My Doctor</string>
-    <string name="history">Report History</string>
+    <string name="history">History</string>
     <string name="report">New Report</string>
     <string name="profile">My Profile</string>
     <string name="setting">Setting</string>
@@ -67,4 +67,6 @@
     <string name="submit">Submit</string>
     <string name="error_getValue">Error getting the Value</string>
     <string name="error_noDoctorSelected">No doctor selected, You can select the Doctor from \"MyDoctor\"</string>
+    <string name="myPatiens">My Patients</string>
+    <string name="myProfile">My Profile</string>
 </resources>

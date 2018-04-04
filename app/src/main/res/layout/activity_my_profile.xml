@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btHome"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:background="@drawable/home_page" />
+
+            <TextView
+                style="@style/Titles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/myProfile" />
+
+        </RelativeLayout>
+
+    <TextView
+        style="@style/Titles2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:text="@string/personalInfo" />
+
+    <EditText
+        android:id="@+id/fristname"
+        style="@style/submitForm"
+        android:hint="@string/fristname" />
+
+    <EditText
+        android:id="@+id/middlename"
+        style="@style/submitForm"
+        android:hint="@string/middlename" />
+
+    <EditText
+        android:id="@+id/lastname"
+        style="@style/submitForm"
+        android:hint="@string/lastname" />
+
+    <EditText
+        android:id="@+id/etDOB"
+        style="@style/submitForm"
+        android:hint="@string/dob"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        style="@style/submitForm"
+        android:hint="@string/phone"
+        android:inputType="phone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titles3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/idTypes" />
+
+        <Spinner
+            android:id="@+id/spinnerIdType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:layout_weight="1">
+
+        </Spinner>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etID"
+        style="@style/submitForm"
+        android:hint="@string/id" />
+    </LinearLayout>
+
+</ScrollView>
