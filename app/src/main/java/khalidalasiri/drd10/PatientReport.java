@@ -128,6 +128,7 @@ public class PatientReport extends AppCompatActivity {
                     home.putExtra("userID", userID);
                     home.putExtra("PatientID",patientID);
                     startActivity(home);
+                    finish();
                     break;
                 case R.id.btSubmit:
                     if(doctorID != null)
@@ -139,6 +140,7 @@ public class PatientReport extends AppCompatActivity {
                         myDoctor.putExtra("userID", userID);
                         myDoctor.putExtra("PatientID",patientID);
                         startActivity(myDoctor);
+                        finish();
                         break;
                     }
                     else {

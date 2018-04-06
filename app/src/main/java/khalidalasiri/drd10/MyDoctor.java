@@ -58,7 +58,7 @@ public class MyDoctor extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btHome:
                     Intent home = new Intent(MyDoctor.this, PatientDashboard.class);
-                    home.putExtra("ID", userID);
+                    home.putExtra("userID", userID);
                     home.putExtra("PatientID",patientID);
                     startActivity(home);
                     break;

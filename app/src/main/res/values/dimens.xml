@@ -15,5 +15,6 @@
     <dimen name="spTitle2">16sp</dimen>
     <dimen name="dp220">220dp</dimen>
     <dimen name="dp170">170dp</dimen>
+    <dimen name="dp200">200dp</dimen>
 
 </resources>

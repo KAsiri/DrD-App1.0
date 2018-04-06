@@ -69,4 +69,8 @@
     <string name="error_noDoctorSelected">No doctor selected, You can select the Doctor from \"MyDoctor\"</string>
     <string name="myPatiens">My Patients</string>
     <string name="myProfile">My Profile</string>
+    <string name="logout_successfully">Logout Successfully</string>
+    <string name="NoData">No Data to show</string>
+    <string name="dailyreport">Daily Report</string>
+    <string name="monthlyaverage">Monthly Average</string>
 </resources>
