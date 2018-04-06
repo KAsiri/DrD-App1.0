@@ -19,7 +19,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ReportLoader extends AsyncTaskLoader<List<Report>> {
@@ -48,8 +51,12 @@ public class ReportLoader extends AsyncTaskLoader<List<Report>> {
         List<Report> reportList = new ArrayList<>();
 
         try {
+            Date c = Calendar.getInstance().getTime();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            String today = df.format(c);
+
             String key = token.get(1).toString().replace("XSRF-TOKEN=","");
-            url = new URL(tableURL+"?csrf="+key+"&include="+tableName+"&filter="+columnName+",eq,"+ primaryKey);
+            url = new URL(tableURL+"?csrf="+key+"&include="+tableName+"&filter[]="+columnName+",eq,"+ primaryKey+"&filter[]="+tableName+".ReportDate,cs,"+ today);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Content-Type", "application/json");

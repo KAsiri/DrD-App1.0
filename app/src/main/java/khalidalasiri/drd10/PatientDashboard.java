@@ -132,12 +132,11 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
 
     @Override
     public Loader<List<Report>> onCreateLoader(int id, Bundle args) {
-        return new ReportLoader(context,tableURL,patientID,"PatientID","Report",token);
+        return new ReportLoader(context,tableURL,patientID,"Patient_History.PatientID","Report",token);
     }
 
     @Override
     public void onLoadFinished(android.support.v4.content.Loader<List<Report>> loader, List<Report> data) {
-        Log.d("print","onLoadFinished");
         if (data.isEmpty()) {
             tvNoData.setVisibility(View.VISIBLE);
         } else {
