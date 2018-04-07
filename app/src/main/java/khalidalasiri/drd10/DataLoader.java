@@ -62,10 +62,10 @@ public class DataLoader extends AsyncTaskLoader<List<UserInformation>> {
                 UserInformation userInformation = new UserInformation(
                         records.getJSONArray(i).getInt(0),
                         records.getJSONArray(i).get(1).toString(), // FirstName
-                        records.getJSONArray(i).get(5).toString(), // Email
-                        records.getJSONArray(i).get(7).toString(),  // Username
-                        records.getJSONArray(i).get(8).toString(),  //Password
-                        records.getJSONArray(i).get(9).toString());    // UserType
+                        records.getJSONArray(i).get(4).toString(), // Email
+                        records.getJSONArray(i).get(6).toString(),  // Username
+                        records.getJSONArray(i).get(7).toString(),  //Password
+                        records.getJSONArray(i).get(8).toString());    // UserType
                 userInformationsList.add(userInformation);
             }
 

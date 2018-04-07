@@ -101,6 +101,7 @@ public class Registration extends AppCompatActivity {
                                         Intent toCompleteRegistration = new Intent(Registration.this, CompleteRegistration.class);
                                         toCompleteRegistration.putExtra("userID",userID);
                                         startActivity(toCompleteRegistration);
+                                        finish();
                                     }
                                     else
                                         Toast.makeText(getApplicationContext(), R.string.error_usernameExist, Toast.LENGTH_LONG).show();

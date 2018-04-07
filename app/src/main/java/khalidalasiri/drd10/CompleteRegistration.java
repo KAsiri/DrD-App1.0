@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.HttpCookie;
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
@@ -163,9 +164,13 @@ public class CompleteRegistration extends AppCompatActivity {
                                     // TODO: 3/24/2018 Done
                                     // there is problem on submit the DOB, the problem was in database
 
-                                    Date dob = new SimpleDateFormat("dd-mm-yyyy").parse(etDOB.getText().toString());
+                                    String dateOfBirth = etDOB.getText().toString().replace("/","-");
+                                    SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+                                    Date date = df.parse(dateOfBirth);
+                                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                                    String DOB = format.format(date);
 
-                                    jsonData3.put("DateOfBirth", new SimpleDateFormat("yyyy-MM-dd").format(dob));
+                                    jsonData3.put("DateOfBirth", DOB);
                                     jsonData3.put("Sex", spinnerSex.getSelectedItem().toString());
                                     jsonData3.put("TypeOfDiabetes", spinnerTypeOfD.getSelectedItem().toString());
                                     jsonData3.put("Weight", etWeight.getText().toString());
@@ -205,8 +210,9 @@ public class CompleteRegistration extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), R.string.dataSavedSuccessfully, Toast.LENGTH_SHORT).show();
                                     // Go to the next page
                                     Intent userDB = new Intent(CompleteRegistration.this, PatientDashboard.class);
-                                    userDB.putExtra("ID", userID);
+                                    userDB.putExtra("userID", userID);
                                     startActivity(userDB);
+                                    finish();
                                 } else
                                     Toast.makeText(getApplicationContext(), R.string.error_notSaved, Toast.LENGTH_SHORT).show();
 

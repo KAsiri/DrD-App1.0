@@ -84,12 +84,12 @@ class LoginAsync extends AsyncTask<String, Void, String[]> {
                 result[0] = "Invalid Login";
                 return result;
             } else {
-                if (password.equals(records.getJSONArray(0).get(8).toString())) { // match the password
+                if (password.equals(records.getJSONArray(0).get(7).toString())) { // match the password
                     //Log.d("print", "Login Successfully");
 
                     result[0] = "Login Successfully";
                     result[1] = records.getJSONArray(0).get(0).toString() ; // The user ID
-                    result[2] = records.getJSONArray(0).get(9).toString() ;
+                    result[2] = records.getJSONArray(0).get(8).toString() ; // The user Type
                     return result;
                 }
                 else {
