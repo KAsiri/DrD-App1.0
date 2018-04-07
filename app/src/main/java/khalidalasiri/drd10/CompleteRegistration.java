@@ -115,7 +115,7 @@ public class CompleteRegistration extends AppCompatActivity {
                                 ConnectionToken connectionToken = new ConnectionToken(context);
                                 token = connectionToken.execute(connection_url).get();
 
-                                // encode the data into JSon for User_Information
+                                // encode the data into json for User_Information
                                 JSONObject jsonData = new JSONObject();
                                 try {
                                     jsonData.put("First_Name", fristName.getText().toString());
@@ -132,7 +132,7 @@ public class CompleteRegistration extends AppCompatActivity {
                                 DataPoster dataPoster = new DataPoster(tableURL, "PUT", token, context);
                                 String respond = dataPoster.execute(jsonData.toString()).get();
 
-                                // encode the data into JSon for User_Address table
+                                // encode the data into json for User_Address table
                                 JSONObject jsonData2 = new JSONObject();
                                 try {
                                     jsonData2.put("UserID", userID);
@@ -156,7 +156,7 @@ public class CompleteRegistration extends AppCompatActivity {
                                 // TODO: 3/23/2018
                                 // Create 3 spinner for get the date of birth and save it in String dob in yyyy-mm-dd format
 
-                                // encode the data into JSon for Patient table
+                                // encode the data into json for Patient table
                                 JSONObject jsonData3 = new JSONObject();
                                 try {
                                     jsonData3.put("UserID", userID);
@@ -183,7 +183,7 @@ public class CompleteRegistration extends AppCompatActivity {
                                 DataPoster dataPoster3 = new DataPoster(tableURL, "POST", token, context);
                                 String respond3 = dataPoster3.execute(jsonData3.toString()).get();
 
-                                // encode the data into JSon for Identification_Number table
+                                // encode the data into json for Identification_Number table
                                 JSONObject jsonData4 = new JSONObject();
                                 try {
                                     jsonData4.put("UserID", userID);
@@ -198,11 +198,6 @@ public class CompleteRegistration extends AppCompatActivity {
                                 //Post the Data
                                 DataPoster dataPoster4 = new DataPoster(tableURL, "POST", token, context);
                                 String respond4 = dataPoster4.execute(jsonData4.toString()).get();
-
-                                Log.d("respond:", respond);
-                                Log.d("respond1:", respond2);
-                                Log.d("respond2:", respond3);
-                                Log.d("respond3:", respond4);
 
                                 // TODO: 3/23/2018      Done
                                 // fix the if statement

@@ -86,7 +86,6 @@ public class DataPoster extends AsyncTask<String,Void,String> {
 
             JsonResponse = stringBuffer.toString();
             //response data
-            Log.d("Response",JsonResponse);
             //send to post execute
             return JsonResponse;
 
