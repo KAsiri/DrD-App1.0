@@ -25,7 +25,10 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
 import java.net.HttpCookie;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -94,7 +97,7 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
         // Bar Chart of Average of the Month
         setTheBarChart();
 
-        // ListView of the Daily report
+        // RecyclerView of the Daily report
         rvDailyReport = findViewById(R.id.rvDailyReport);
         tvNoData = findViewById(R.id.tvNoData);
         loadDailyReport();
@@ -132,7 +135,12 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
 
     @Override
     public Loader<List<Report>> onCreateLoader(int id, Bundle args) {
-        return new ReportLoader(context,tableURL,patientID,"Patient_History.PatientID","Report",token);
+        String tableName = "Report";
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String today = df.format(c);
+        String filter = "&filter[]="+tableName+".ReportDate,cs,"+ today;
+        return new ReportLoader(context,tableURL,patientID,"Patient_History.PatientID",tableName,filter,token);
     }
 
     @Override
@@ -259,9 +267,10 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
                     startActivity(newReport);
                     break;
                 case R.id.btHistory:
-                    Intent reportHistory = new Intent(PatientDashboard.this, CompleteRegistration.class);
-                    reportHistory.putExtra("userID", userID);
-                    startActivity(reportHistory);
+                    Intent history = new Intent(PatientDashboard.this, History.class);
+                    history.putExtra("userID", userID);
+                    history.putExtra("PatientID",patientID);
+                    startActivity(history);
                     break;
 
             }

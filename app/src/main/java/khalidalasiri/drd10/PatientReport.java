@@ -73,7 +73,7 @@ public class PatientReport extends AppCompatActivity {
         // get the Doctor ID for this Patient
         doctorID = getDoctorID(patientID);
         if (doctorID != null) {
-            Toast.makeText(getApplicationContext(), doctorID, Toast.LENGTH_LONG).show();
+            //
         } else {
             Toast.makeText(getApplicationContext(), R.string.error_noDoctorSelected, Toast.LENGTH_LONG).show();
         }
@@ -139,8 +139,7 @@ public class PatientReport extends AppCompatActivity {
                 case R.id.btSubmit:
                     if (doctorID != null) {
                         if (!etBG.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), doctorID, Toast.LENGTH_LONG).show();
-                            // TODO: 4/3/2018 Submit the Data
+                            // TODO: 4/3/2018 Submit the Data done
                             // Check the Internet Connection
                             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
                             NetworkInfo ni = null;

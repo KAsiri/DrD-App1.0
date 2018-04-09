@@ -33,15 +33,17 @@ public class ReportLoader extends AsyncTaskLoader<List<Report>> {
     private String columnName;
     private int index;
     private String tableName;
+    private String filter;
     private HttpURLConnection httpURLConnection;
     private List<HttpCookie> token;
 
-    public ReportLoader(Context context, String tableURL, String primaryKey, String columnName, String tableName, List<HttpCookie> token) {
+    public ReportLoader(Context context, String tableURL, String primaryKey, String columnName, String tableName,String filter, List<HttpCookie> token) {
         super(context);
         this.tableURL = tableURL;
         this.primaryKey = primaryKey;
         this.columnName = columnName;
         this.tableName = tableName;
+        this.filter = filter;
         this.token = token;
     }
 
@@ -51,12 +53,8 @@ public class ReportLoader extends AsyncTaskLoader<List<Report>> {
         List<Report> reportList = new ArrayList<>();
 
         try {
-            Date c = Calendar.getInstance().getTime();
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            String today = df.format(c);
-
             String key = token.get(1).toString().replace("XSRF-TOKEN=","");
-            url = new URL(tableURL+"?csrf="+key+"&include="+tableName+"&filter[]="+columnName+",eq,"+ primaryKey+"&filter[]="+tableName+".ReportDate,cs,"+ today);
+            url = new URL(tableURL+"?csrf="+key+"&include="+tableName+"&filter[]="+columnName+",eq,"+ primaryKey+filter);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Content-Type", "application/json");

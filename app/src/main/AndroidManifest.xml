@@ -43,7 +43,8 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan" />
         <activity android:name=".PatientReport" />
         <activity android:name=".MyDoctor" />
-        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".MyProfile" />
+        <activity android:name=".History"></activity>
     </application>
 
 </manifest>

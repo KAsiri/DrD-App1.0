@@ -73,4 +73,6 @@
     <string name="NoData">No Data to show</string>
     <string name="dailyreport">Daily Report</string>
     <string name="monthlyaverage">Monthly Average</string>
+    <string name="dateTime">Date / Time</string>
+    <string name="enterDoctorCode">Enter Doctor Code</string>
 </resources>
