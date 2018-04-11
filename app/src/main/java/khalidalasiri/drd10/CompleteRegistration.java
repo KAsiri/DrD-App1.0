@@ -161,7 +161,7 @@ public class CompleteRegistration extends AppCompatActivity {
                                 JSONObject jsonData3 = new JSONObject();
                                 try {
                                     jsonData3.put("UserID", userID);
-                                    // TODO: 3/24/2018 Done
+                                    // Done
                                     // there is problem on submit the DOB, the problem was in database
 
                                     String dateOfBirth = etDOB.getText().toString().replace("/","-");
@@ -204,7 +204,7 @@ public class CompleteRegistration extends AppCompatActivity {
                                 DataPoster dataPoster4 = new DataPoster(tableURL, "POST", token, context);
                                 String respond4 = dataPoster4.execute(jsonData4.toString()).get();
 
-                                // TODO: 3/23/2018      Done
+                                // Done
                                 // fix the if statement
                                 if (!respond.isEmpty()) {
                                     Toast.makeText(getApplicationContext(), R.string.dataSavedSuccessfully, Toast.LENGTH_SHORT).show();

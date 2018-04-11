@@ -75,4 +75,12 @@
     <string name="monthlyaverage">Monthly Average</string>
     <string name="dateTime">Date / Time</string>
     <string name="enterDoctorCode">Enter Doctor Code</string>
+    <string name="doctorName">Doctor Name</string>
+    <string name="hospitalName">Hospital Name</string>
+    <string name="doctorDegree">Doctor Degree</string>
+    <string name="doctorRank">Doctor Rank</string>
+    <string name="select">Select</string>
+    <string name="change">Change</string>
+    <string name="error_doctorNotFound">Doctor Not Found</string>
+    <string name="error_patientIDNotFound">Error: Patient ID Not Found</string>
 </resources>

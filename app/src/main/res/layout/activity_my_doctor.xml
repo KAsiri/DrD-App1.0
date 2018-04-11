@@ -66,6 +66,107 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/section2"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:padding="@dimen/dp5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    style="@style/Titles2"
+                    android:text="@string/doctorName"/>
+                <TextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Titles"
+                    android:hint="@string/doctorName"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    style="@style/Titles2"
+                    android:text="@string/hospitalName"/>
+                <TextView
+                    android:id="@+id/tvHospitalName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Titles"
+                    android:hint="@string/hospitalName"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    style="@style/Titles2"
+                    android:text="@string/doctorDegree"/>
+                <TextView
+                    android:id="@+id/tvDoctorDegree"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Titles"
+                    android:hint="@string/doctorDegree"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    style="@style/Titles2"
+                    android:text="@string/doctorRank"/>
+                <TextView
+                    android:id="@+id/tvDoctorRank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Titles"
+                    android:hint="@string/doctorRank"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/secondaryButton"
+                android:text="@string/select"/>
+            <Button
+                android:id="@+id/btChange"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/mainButton"
+                android:text="@string/change"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

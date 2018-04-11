@@ -139,7 +139,7 @@ public class PatientReport extends AppCompatActivity {
                 case R.id.btSubmit:
                     if (doctorID != null) {
                         if (!etBG.getText().toString().isEmpty()) {
-                            // TODO: 4/3/2018 Submit the Data done
+                            // done
                             // Check the Internet Connection
                             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
                             NetworkInfo ni = null;

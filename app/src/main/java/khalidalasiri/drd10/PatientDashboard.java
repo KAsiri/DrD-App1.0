@@ -93,6 +93,10 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
 
         // get Patient ID
         patientID = getPatientID(userID);
+        if(patientID.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),R.string.error_patientIDNotFound,Toast.LENGTH_LONG).show();
+        }
 
         // Bar Chart of Average of the Month
         setTheBarChart();
@@ -161,6 +165,7 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
 
 
     private String getPatientID(String userID) {
+        patientID = null;
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo ni = null;
         if (cm != null) {
@@ -171,14 +176,20 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
                     connection_url = "http://drd-ksa.com/drdAPI/AppAPI/api.php/";
                     ConnectionToken connectionToken = new ConnectionToken(context);
                     token = connectionToken.execute(connection_url).get();
+
                     tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/Patient";
                     GetAsync getAsync = new GetAsync(token,context,tableURL,"Patient");
                     message = getAsync.execute(userID,"0","UserID").get();   // 0 is the index of the patine ID on the table on database
 
                     if(message == null)
+                    {
                         Toast.makeText(getApplicationContext(), R.string.error_getValue, Toast.LENGTH_SHORT).show();
+                        patientID = "" ;
+                    }
                     else
-                        return message[1];
+                    {
+                        patientID = message[1];
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
@@ -188,7 +199,7 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
                 Toast.makeText(getApplicationContext(), getString(R.string.error_noInternet), Toast.LENGTH_LONG).show();
             }
         }
-        return null;
+        return patientID ;
     }
 
     @Override
