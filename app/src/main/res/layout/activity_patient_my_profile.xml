@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyProfile">
+    tools:context=".PateintMyProfile">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,6 +60,11 @@
         android:hint="@string/dob"
         android:inputType="date" />
 
+        <EditText
+            android:id="@+id/etEmail"
+            style="@style/submitForm"
+            android:hint="@string/label_email"
+            android:inputType="textEmailAddress" />
     <EditText
         android:id="@+id/etPhone"
         style="@style/submitForm"

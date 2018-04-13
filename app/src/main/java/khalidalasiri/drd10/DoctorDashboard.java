@@ -47,9 +47,14 @@ public class DoctorDashboard extends AppCompatActivity {
         btPatients = findViewById(R.id.btPatients);
 
 
+        // TODO: 4/13/2018
+        // get the Doctor ID
+
         tvUserName.setText("Hello, " + userID);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        btProfile.setOnClickListener(onClickListener);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -82,14 +87,14 @@ public class DoctorDashboard extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btProfile:
-                    Intent userDB = new Intent(DoctorDashboard.this, MyProfile.class);
+                    Intent userDB = new Intent(DoctorDashboard.this, DoctorMyProfile.class);
                     userDB.putExtra("userID", userID);
                     startActivity(userDB);
                     break;
                 case R.id.btPatients:
-                    Intent myDoctor = new Intent(DoctorDashboard.this, MyDoctor.class);
-                    myDoctor.putExtra("userID", userID);
-                    startActivity(myDoctor);
+                    Intent myPatients = new Intent(DoctorDashboard.this, MyPatients.class);
+                    myPatients.putExtra("userID", userID);
+                    startActivity(myPatients);
                     break;
 
             }

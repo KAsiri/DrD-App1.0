@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DoctorMyProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btHome"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:background="@drawable/home_page" />
+
+            <TextView
+                style="@style/Titles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/myProfile" />
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/personalInfo" />
+
+        <EditText
+            android:id="@+id/fristname"
+            style="@style/submitForm"
+            android:hint="@string/fristname" />
+
+        <EditText
+            android:id="@+id/middlename"
+            style="@style/submitForm"
+            android:hint="@string/middlename" />
+
+        <EditText
+            android:id="@+id/lastname"
+            style="@style/submitForm"
+            android:hint="@string/lastname" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            style="@style/submitForm"
+            android:hint="@string/label_email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/etPhone"
+            style="@style/submitForm"
+            android:hint="@string/phone"
+            android:inputType="phone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/idTypes" />
+
+            <EditText
+                android:id="@+id/etIDtype"
+                style="@style/submitForm"
+                android:hint="@string/idTypes"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etID"
+            style="@style/submitForm"
+            android:hint="@string/id" />
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/addressInfo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/countries" />
+
+            <EditText
+                android:id="@+id/etCountry"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/countries" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/cities" />
+
+            <EditText
+                android:id="@+id/etCity"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/cities" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etNeighborhood"
+            style="@style/submitForm"
+            android:hint="@string/neighborhood" />
+
+        <EditText
+            android:id="@+id/etStreet"
+            style="@style/submitForm"
+            android:hint="@string/street" />
+
+        <EditText
+            android:id="@+id/etBuilding"
+            style="@style/submitForm"
+            android:hint="@string/building" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etPostal"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/postal" />
+
+            <EditText
+                android:id="@+id/etAddition"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/addition" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/doctorInfo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
+                android:text="@string/doctorDegree" />
+
+            <EditText
+                android:id="@+id/etDoctorDegree"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/doctorDegree"
+                android:inputType="numberSigned" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
+                android:text="@string/doctorRank" />
+
+            <EditText
+                android:id="@+id/etDoctorRank"
+                style="@style/submitForm"
+                android:layout_weight="1"
+                android:hint="@string/doctorRank"
+                android:inputType="numberSigned" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

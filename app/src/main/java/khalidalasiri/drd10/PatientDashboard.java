@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -104,11 +103,11 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
         // RecyclerView of the Daily report
         rvDailyReport = findViewById(R.id.rvDailyReport);
         tvNoData = findViewById(R.id.tvNoData);
-        loadDailyReport();
+        PatientHistory("Daily");
 
     }
 
-    private void loadDailyReport() {
+    private void PatientHistory(String typeOfData) {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo ni = null;
         if (cm != null) {
@@ -121,10 +120,17 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
                     token = connectionToken.execute(connection_url).get();
                     tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/Patient_History";
 
-                    rvDailyReport.setLayoutManager(new LinearLayoutManager(this));
-                    reportRVAdapter = new ReportRVAdapter(context,new ArrayList<Report>());
-                    rvDailyReport.setAdapter(reportRVAdapter);
-                    getSupportLoaderManager().initLoader(0, null, this).forceLoad();
+                    if (typeOfData.equals("Daily"))
+                    {
+                        rvDailyReport.setLayoutManager(new LinearLayoutManager(this));
+                        reportRVAdapter = new ReportRVAdapter(context,new ArrayList<Report>());
+                        rvDailyReport.setAdapter(reportRVAdapter);
+                        getSupportLoaderManager().initLoader(0, null, this).forceLoad();
+                    }
+                    else if (typeOfData.equals("Average"))
+                    {
+
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
@@ -260,7 +266,7 @@ public class PatientDashboard extends AppCompatActivity implements LoaderManager
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btProfile:
-                    Intent userDB = new Intent(PatientDashboard.this, MyProfile.class);
+                    Intent userDB = new Intent(PatientDashboard.this, PateintMyProfile.class);
                     userDB.putExtra("userID", userID);
                     userDB.putExtra("PatientID",patientID);
                     startActivity(userDB);

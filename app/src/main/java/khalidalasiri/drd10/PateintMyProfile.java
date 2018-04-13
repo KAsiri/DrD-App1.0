@@ -1,11 +1,13 @@
 package khalidalasiri.drd10;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class MyProfile extends AppCompatActivity {
+public class PateintMyProfile extends AppCompatActivity {
 
     //EditText
     EditText fristName;
@@ -36,6 +38,7 @@ public class MyProfile extends AppCompatActivity {
 
     // Button
     Button btUpdate;
+    Button btHome;
 
     //Spinners
     Spinner spinnerIdType;
@@ -59,7 +62,7 @@ public class MyProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_profile);
+        setContentView(R.layout.activity_patient_my_profile);
         // Set all the UI elements
         setElements();
         // initializing the variables
@@ -77,7 +80,24 @@ public class MyProfile extends AppCompatActivity {
         }
         getUserInfo(userID);
 
+        btHome = findViewById(R.id.btHome);
+        btHome.setOnClickListener(onClickListener);
     }
+
+    final View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btHome:
+                    Intent home = new Intent(PateintMyProfile.this, PatientDashboard.class);
+                    home.putExtra("userID", userID);
+                    startActivity(home);
+                    finish();
+                    break;
+            }
+
+        }
+    };
 
     private void getUserInfo(String userID) {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -113,16 +133,16 @@ public class MyProfile extends AppCompatActivity {
 
                         // TODO: 4/12/2018
                         // set the spinner value
-                        Log.d("print",message[15]);
-                        String sp = message[15];
-                        Log.d("spinner",String.valueOf(idTypesAdapter.getPosition(message[15])));
-
-                        spinnerIdType.setSelection(idTypesAdapter.getPosition(message[15]));
-                        spinnerCountries.setPrompt(message[8]);
-                        spinnerCities.setPrompt(message[9]);
-                        spinnerSex.setPrompt(message[18]);
-                        spinnerTypeOfBlood.setPrompt(message[22]);
-                        spinnerTypeOfD.setPrompt(message[19]);
+//                        Log.d("print",message[15]);
+//                        String sp = message[15];
+//                        Log.d("spinner",String.valueOf(idTypesAdapter.getPosition(message[15])));
+//
+//                        spinnerIdType.setSelection(idTypesAdapter.getPosition(message[15]));
+//                        spinnerCountries.setPrompt(message[8]);
+//                        spinnerCities.setPrompt(message[9]);
+//                        spinnerSex.setPrompt(message[18]);
+//                        spinnerTypeOfBlood.setPrompt(message[22]);
+//                        spinnerTypeOfD.setPrompt(message[19]);
                     }
                     else
                         Toast.makeText(getApplicationContext(),R.string.error_getValue,Toast.LENGTH_SHORT).show();

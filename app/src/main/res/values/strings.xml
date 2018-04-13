@@ -84,4 +84,10 @@
     <string name="error_doctorNotFound">Doctor Not Found</string>
     <string name="error_patientIDNotFound">Error: Patient ID Not Found</string>
     <string name="update">Update</string>
+    <string name="doctorInfo">Doctor Information</string>
+    <string name="patientName">Patient Name</string>
+    <string name="patientSex">Patient Sex</string>
+    <string name="patientAge">Patient Age</string>
+    <string name="patientID">Patient ID</string>
+    <string name="diabetesType">Diabetes Type</string>
 </resources>

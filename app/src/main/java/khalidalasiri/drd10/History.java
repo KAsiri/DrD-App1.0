@@ -40,9 +40,6 @@ public class History extends AppCompatActivity implements LoaderManager.LoaderCa
     TextView tvNoData;
 
     Button btHome;
-    EditText etBP;
-    EditText etBG;
-    EditText etHR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
