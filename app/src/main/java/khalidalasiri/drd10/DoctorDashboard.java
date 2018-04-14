@@ -1,6 +1,9 @@
 package khalidalasiri.drd10;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +17,10 @@ import android.support.v7.widget.Toolbar;
 
 import com.github.mikephil.charting.charts.BarChart;
 
+import java.net.HttpCookie;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 public class DoctorDashboard extends AppCompatActivity {
 
     Toolbar toolbar;
@@ -24,11 +31,19 @@ public class DoctorDashboard extends AppCompatActivity {
     BarChart bcAvarage;
     ListView lvDailyReport;
     String userID;
+    String doctorID;
+
+    private List<HttpCookie> token;
+    String connection_url;
+    String message[];
+    String tableURL;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
 
+        context = this;
         // get the User ID from Extra
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -47,14 +62,18 @@ public class DoctorDashboard extends AppCompatActivity {
         btPatients = findViewById(R.id.btPatients);
 
 
-        // TODO: 4/13/2018
         // get the Doctor ID
-
+        doctorID = getDoctorID(userID);
+        if (doctorID == null)
+        {
+                Toast.makeText(getApplicationContext(),R.string.errorDoctorIDNotFound,Toast.LENGTH_LONG).show();
+        }
         tvUserName.setText("Hello, " + userID);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         btProfile.setOnClickListener(onClickListener);
+        btPatients.setOnClickListener(onClickListener);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,6 +81,42 @@ public class DoctorDashboard extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    private String getDoctorID(String userID) {
+        doctorID = null;
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo ni = null;
+        if (cm != null) {
+            ni = cm.getActiveNetworkInfo();
+
+            if (ni != null && ni.isConnected()) {
+                try {
+                    connection_url = "http://drd-ksa.com/drdAPI/AppAPI/api.php/";
+                    ConnectionToken connectionToken = new ConnectionToken(context);
+                    token = connectionToken.execute(connection_url).get();
+
+                    tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/Doctor";
+                    GetAsync getAsync = new GetAsync(token,context,tableURL,"Doctor");
+                    message = getAsync.execute(userID,"0","UserID").get();   // 0 is the index of the Doctor ID on the table on database
+
+                    if(message == null)
+                    {
+                        Toast.makeText(getApplicationContext(), R.string.error_getValue, Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        doctorID = message[1];
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), getString(R.string.error_noInternet), Toast.LENGTH_LONG).show();
+            }
+        }
+        return doctorID ;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
@@ -94,6 +149,7 @@ public class DoctorDashboard extends AppCompatActivity {
                 case R.id.btPatients:
                     Intent myPatients = new Intent(DoctorDashboard.this, MyPatients.class);
                     myPatients.putExtra("userID", userID);
+                    myPatients.putExtra("DoctorID", doctorID);
                     startActivity(myPatients);
                     break;
 

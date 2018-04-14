@@ -14,7 +14,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/drd_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/drd_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan">

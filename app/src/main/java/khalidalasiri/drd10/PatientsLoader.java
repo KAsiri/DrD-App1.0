@@ -21,7 +21,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientsLoader extends AsyncTaskLoader<List<Report>> {
+public class PatientsLoader extends AsyncTaskLoader<List<Patients>> {
 
     private String tableURL;
     private URL url;
@@ -30,27 +30,33 @@ public class PatientsLoader extends AsyncTaskLoader<List<Report>> {
     private int index;
     private String tableName;
     private String filter;
+
+    private String include;
     private HttpURLConnection httpURLConnection;
     private List<HttpCookie> token;
 
-    public PatientsLoader(Context context, String tableURL, String primaryKey, String columnName, String tableName, String filter, List<HttpCookie> token) {
+    public PatientsLoader(Context context, String tableURL,String primaryKey, String columnName, String tableName, String include,String filter, List<HttpCookie> token) {
         super(context);
         this.tableURL = tableURL;
+        this.url = url;
         this.primaryKey = primaryKey;
         this.columnName = columnName;
+        this.index = index;
         this.tableName = tableName;
         this.filter = filter;
+        this.include = include;
+        this.httpURLConnection = httpURLConnection;
         this.token = token;
     }
 
 
     @Override
-    public List<Report> loadInBackground() {
-        List<Report> reportList = new ArrayList<>();
+    public List<Patients> loadInBackground() {
+        List<Patients> patientsList = new ArrayList<>();
 
         try {
             String key = token.get(1).toString().replace("XSRF-TOKEN=","");
-            url = new URL(tableURL+"?csrf="+key+"&include="+tableName+"&filter[]="+columnName+",eq,"+ primaryKey+filter);
+            url = new URL(tableURL+"?csrf="+key+include+filter+primaryKey);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
@@ -69,21 +75,25 @@ public class PatientsLoader extends AsyncTaskLoader<List<Report>> {
             }
 
             JSONObject root = new JSONObject(builder.toString());
-            JSONObject User_Information = root.getJSONObject(tableName);
-            JSONArray records = User_Information.getJSONArray("records");
+            JSONObject Specialist = root.getJSONObject(tableName);
+            JSONArray records = Specialist.getJSONArray("records");
 
-            // TODO: 4/13/2018
-            // Read the data from UserInformation table and Patient table
+            // Read the data from Specialist, UserInformation and Patient table
 
             for (int i=0; i < records.length();i++)
             {
-                Report report = new Report(records.getJSONArray(i).get(0).toString(),
-                        records.getJSONArray(i).get(1).toString(),
-                        records.getJSONArray(i).get(2).toString(),
-                        records.getJSONArray(i).get(3).toString(),
-                        records.getJSONArray(i).get(4).toString());
+                JSONObject Patient = root.getJSONObject("Patient");
+                JSONArray records1 = Patient.getJSONArray("records");
 
-                reportList.add(report);
+                JSONObject User_Information = root.getJSONObject("User_Information");
+                JSONArray records2 = User_Information.getJSONArray("records");
+
+                Patients patients = new Patients(records.getJSONArray(i).get(0).toString(),
+                        records2.getJSONArray(i).get(1).toString(),
+                        records1.getJSONArray(i).get(3).toString(),
+                        records1.getJSONArray(i).get(4).toString());
+
+                patientsList.add(patients);
             }
 
         } catch (MalformedURLException e) {
@@ -93,6 +103,6 @@ public class PatientsLoader extends AsyncTaskLoader<List<Report>> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return reportList;
+        return patientsList;
     }
 }

@@ -90,4 +90,5 @@
     <string name="patientAge">Patient Age</string>
     <string name="patientID">Patient ID</string>
     <string name="diabetesType">Diabetes Type</string>
+    <string name="errorDoctorIDNotFound">Doctor ID Not Found</string>
 </resources>
