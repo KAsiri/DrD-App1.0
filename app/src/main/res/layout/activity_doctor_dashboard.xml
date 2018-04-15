@@ -40,22 +40,54 @@
         android:layout_weight="20"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/lvDailyReport"
+        <TextView
+            style="@style/Titles2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp220"
-            android:layout_margin="@dimen/dp5"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:ignore="NestedWeights" />
+            android:gravity="center"
+            android:text="@string/newReports" />
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/bcAvarage"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp220"
-            android:layout_margin="@dimen/dp5"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_marginStart="@dimen/dp5"
+            android:orientation="horizontal">
 
-        </com.github.mikephil.charting.charts.BarChart>
+            <TextView
+                android:id="@+id/tvBP"
+                style="@style/Titles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="BP" />
+
+            <TextView
+                android:id="@+id/tvBG"
+                style="@style/Titles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="BG" />
+
+            <TextView
+                android:id="@+id/tvHR"
+                style="@style/Titles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="HR" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp260"
+            android:layout_margin="@dimen/dp5"
+            android:id="@+id/rvDailyReport"/>
 
     </LinearLayout>
 

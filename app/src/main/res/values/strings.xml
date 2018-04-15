@@ -91,4 +91,6 @@
     <string name="patientID">Patient ID</string>
     <string name="diabetesType">Diabetes Type</string>
     <string name="errorDoctorIDNotFound">Doctor ID Not Found</string>
+    <string name="dateOfBirth">Date Of Birth</string>
+    <string name="newReports">New Reports</string>
 </resources>

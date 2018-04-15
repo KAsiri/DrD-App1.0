@@ -39,32 +39,117 @@
             android:layout_marginTop="@dimen/dp5"
             android:text="@string/personalInfo" />
 
-        <EditText
-            android:id="@+id/fristname"
-            style="@style/submitForm"
-            android:hint="@string/fristname" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/middlename"
-            style="@style/submitForm"
-            android:hint="@string/middlename" />
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/fristname" />
 
-        <EditText
-            android:id="@+id/lastname"
-            style="@style/submitForm"
-            android:hint="@string/lastname" />
+            <EditText
+                android:id="@+id/fristname"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/etEmail"
-            style="@style/submitForm"
-            android:hint="@string/label_email"
-            android:inputType="textEmailAddress" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etPhone"
-            style="@style/submitForm"
-            android:hint="@string/phone"
-            android:inputType="phone" />
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/middlename" />
+
+            <EditText
+                android:id="@+id/middlename"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/lastname" />
+
+            <EditText
+                android:id="@+id/lastname"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/label_email" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/phone" />
+
+            <EditText
+                android:id="@+id/etPhone"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="phone" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,10 +173,27 @@
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/etID"
-            style="@style/submitForm"
-            android:hint="@string/id" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/id" />
+
+            <EditText
+                android:id="@+id/etID"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <TextView
             style="@style/Titles2"
@@ -143,21 +245,91 @@
                 android:hint="@string/cities" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etNeighborhood"
-            style="@style/submitForm"
-            android:hint="@string/neighborhood" />
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/neighborhood" />
 
-        <EditText
-            android:id="@+id/etStreet"
-            style="@style/submitForm"
-            android:hint="@string/street" />
+            <EditText
+                android:id="@+id/etNeighborhood"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/etBuilding"
-            style="@style/submitForm"
-            android:hint="@string/building" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/street" />
+
+            <EditText
+                android:id="@+id/etStreet"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/building" />
+
+            <EditText
+                android:id="@+id/etBuilding"
+                style="@style/submitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/postal" />
+
+            <TextView
+                style="@style/Titles3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/addition" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

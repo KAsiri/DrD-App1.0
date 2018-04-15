@@ -16,5 +16,6 @@
     <dimen name="dp220">220dp</dimen>
     <dimen name="dp170">170dp</dimen>
     <dimen name="dp200">200dp</dimen>
+    <dimen name="dp260">260dp</dimen>
 
 </resources>

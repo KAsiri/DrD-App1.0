@@ -44,8 +44,6 @@ public class PatientsRVAdapter extends RecyclerView.Adapter<PatientsRVAdapter.VH
         TextView tvPN;
         TextView tvPS;
         TextView tvDT;
-        String reportID;
-        String reportDate;
 
         public VH(View itemView) {
             super(itemView);

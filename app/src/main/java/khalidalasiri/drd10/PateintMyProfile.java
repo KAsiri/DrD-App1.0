@@ -27,6 +27,7 @@ public class PateintMyProfile extends AppCompatActivity {
     EditText lastName;
     EditText etDOB;
     EditText etPhone;
+    EditText etEmail;
     EditText etID;
     EditText etNeighborhood;
     EditText etStreet;
@@ -41,12 +42,12 @@ public class PateintMyProfile extends AppCompatActivity {
     Button btHome;
 
     //Spinners
-    Spinner spinnerIdType;
-    Spinner spinnerCountries;
-    Spinner spinnerCities;
-    Spinner spinnerSex;
-    Spinner spinnerTypeOfD;
-    Spinner spinnerTypeOfBlood;
+    EditText etIdType;
+    EditText etCountry;
+    EditText etCity;
+    EditText etSex;
+    EditText etTypeOfD;
+    EditText etTypeOfBlood;
 
     // for connection
     private String connection_url;
@@ -121,6 +122,7 @@ public class PateintMyProfile extends AppCompatActivity {
                         middleName.setText(message[3]);
                         lastName.setText(message[4]);
                         etDOB.setText(message[17]);
+                        etEmail.setText(message[5]);
                         etPhone.setText(message[6]);
                         etID.setText(message[16]);
                         etNeighborhood.setText(message[10]);
@@ -131,18 +133,12 @@ public class PateintMyProfile extends AppCompatActivity {
                         etWeight.setText(message[20]);
                         etHeight.setText(message[21]);
 
-                        // TODO: 4/12/2018
-                        // set the spinner value
-//                        Log.d("print",message[15]);
-//                        String sp = message[15];
-//                        Log.d("spinner",String.valueOf(idTypesAdapter.getPosition(message[15])));
-//
-//                        spinnerIdType.setSelection(idTypesAdapter.getPosition(message[15]));
-//                        spinnerCountries.setPrompt(message[8]);
-//                        spinnerCities.setPrompt(message[9]);
-//                        spinnerSex.setPrompt(message[18]);
-//                        spinnerTypeOfBlood.setPrompt(message[22]);
-//                        spinnerTypeOfD.setPrompt(message[19]);
+                        etIdType.setText(message[15]);
+                        etCountry.setText(message[8]);
+                        etCity.setText(message[9]);
+                        etSex.setText(message[18]);
+                        etTypeOfD.setText(message[19]);
+                        etTypeOfBlood.setText(message[22]);
                     }
                     else
                         Toast.makeText(getApplicationContext(),R.string.error_getValue,Toast.LENGTH_SHORT).show();
@@ -161,10 +157,11 @@ public class PateintMyProfile extends AppCompatActivity {
     // Set the Spinners used on the UI
     private void setElements() {
         // Set EditText
-        fristName = findViewById(R.id.fristname);
-        middleName = findViewById(R.id.middlename);
-        lastName = findViewById(R.id.lastname);
+        fristName = findViewById(R.id.etFristName);
+        middleName = findViewById(R.id.etMiddleName);
+        lastName = findViewById(R.id.etLastNAme);
         etDOB = findViewById(R.id.etDOB);
+        etEmail = findViewById(R.id.etEmail);
         etPhone = findViewById(R.id.etPhone);
         etID = findViewById(R.id.etID);
         etNeighborhood = findViewById(R.id.etNeighborhood);
@@ -174,49 +171,11 @@ public class PateintMyProfile extends AppCompatActivity {
         etAddition = findViewById(R.id.etAddition);
         etWeight = findViewById(R.id.etWeight);
         etHeight = findViewById(R.id.etHeight);
-
-        // Set EditText
-        btUpdate = findViewById(R.id.btUpdate);
-        // Set Spinners
-
-        String[] idTypes = {getString(R.string.selectUridType), "National ID", "Eqamah Number", "Passport ID"};
-        spinnerIdType = findViewById(R.id.spinnerIdType);
-        idTypesAdapter = new ArrayAdapter(this, R.layout.spinner_item, idTypes);
-        idTypesAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerIdType.setAdapter(idTypesAdapter);
-
-
-        String[] countries = {getString(R.string.selectUrCoun), "Saudi Arabia", "United Arab Emirates", "Kuwait"};
-        spinnerCountries = findViewById(R.id.spinnerCountries);
-        ArrayAdapter countriesAdapter = new ArrayAdapter(this, R.layout.spinner_item, countries);
-        countriesAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerCountries.setAdapter(countriesAdapter);
-
-        String[] cities = {getString(R.string.selectUrCit), "Abha", "Dammam", "Al Baha", "Jizan", "Najran", "Hail", "Makkah AL-Mukkaramah", "Al-Madinah Al-Munawarah", "Al Qaseem"
-                , "Riyadh", "Jeddah", "Al-Khobar", "Taif", "Tabouk", "Jubail"};
-        Arrays.sort(cities);
-        spinnerCities = findViewById(R.id.spinnerCities);
-        ArrayAdapter citiesAdapter = new ArrayAdapter(this, R.layout.spinner_item, cities);
-        citiesAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerCities.setAdapter(citiesAdapter);
-
-        String[] sex = {"", "Male", "Female"};
-        spinnerSex = findViewById(R.id.spinnerSex);
-        ArrayAdapter sexAdapter = new ArrayAdapter(this, R.layout.spinner_item, sex);
-        sexAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerSex.setAdapter(sexAdapter);
-
-        String[] typeOfD = {"", "Type A", "Type B", "Type C"};
-        spinnerTypeOfD = findViewById(R.id.spinnerTypeOfD);
-        ArrayAdapter typeOfDAdapter = new ArrayAdapter(this, R.layout.spinner_item, typeOfD);
-        typeOfDAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerTypeOfD.setAdapter(typeOfDAdapter);
-
-        String[] typeOfBlood = {"", "O+", "O-", "AB+", "AB-", "A+", "A-", "B+", "B-"};
-        spinnerTypeOfBlood = findViewById(R.id.spinnerTypeOfBlood);
-        ArrayAdapter typeOfBloodAdapter = new ArrayAdapter(this, R.layout.spinner_item, typeOfBlood);
-        typeOfBloodAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerTypeOfBlood.setAdapter(typeOfBloodAdapter);
-
+        etCountry = findViewById(R.id.etCountry);
+        etCity = findViewById(R.id.etCity);
+        etIdType = findViewById(R.id.etIDtype);
+        etSex = findViewById(R.id.etSex);
+        etTypeOfD = findViewById(R.id.etTypeOfD);
+        etTypeOfBlood = findViewById(R.id.etTypeOfBlood);
     }
 }

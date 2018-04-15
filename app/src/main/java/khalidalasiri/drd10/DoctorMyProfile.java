@@ -26,6 +26,7 @@ public class DoctorMyProfile extends AppCompatActivity {
     EditText middleName;
     EditText lastName;
     EditText etDOB;
+    EditText etEmail;
     EditText etPhone;
     EditText etID;
     EditText etNeighborhood;
@@ -38,7 +39,6 @@ public class DoctorMyProfile extends AppCompatActivity {
     EditText etIDtype;
     EditText etCountry ;
     EditText etCity ;
-    EditText etEmail;
 
     Button btHome;
 
@@ -163,7 +163,6 @@ public class DoctorMyProfile extends AppCompatActivity {
         etIDtype = findViewById(R.id.etIDtype);
         etEmail = findViewById(R.id.etEmail);
 
-        // Set Spinners
 
     }
 }
