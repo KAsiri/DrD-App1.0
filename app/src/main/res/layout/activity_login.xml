@@ -12,6 +12,14 @@
             style="@style/imageStyle"
             android:background="@drawable/drd_13"
             android:contentDescription="@string/logo" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/spLogo"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="@string/drd"/>
 
         <android.support.v7.widget.AppCompatAutoCompleteTextView
             android:id="@+id/actvEmail"

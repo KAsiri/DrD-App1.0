@@ -4,6 +4,7 @@ package khalidalasiri.drd10;
 import android.support.v4.content.AsyncTaskLoader;
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.JsonReader;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -73,16 +74,19 @@ public class ReportLoader extends AsyncTaskLoader<List<Report>> {
             }
 
             JSONObject root = new JSONObject(builder.toString());
-            JSONObject User_Information = root.getJSONObject(tableName);
-            JSONArray records = User_Information.getJSONArray("records");
+            JSONObject jsonObject1 = root.getJSONObject("Patient_History");
+            JSONArray records1 = jsonObject1.getJSONArray("records");
+            JSONObject jsonObject2 = root.getJSONObject(tableName);
+            JSONArray records2 = jsonObject2.getJSONArray("records");
 
-            for (int i=0; i < records.length();i++)
+            for (int i=0; i < records2.length();i++)
             {
-                Report report = new Report(records.getJSONArray(i).get(0).toString(),
-                        records.getJSONArray(i).get(1).toString(),
-                        records.getJSONArray(i).get(2).toString(),
-                        records.getJSONArray(i).get(3).toString(),
-                        records.getJSONArray(i).get(4).toString());
+                Report report = new Report(records1.getJSONArray(i).get(0).toString(),
+                        records2.getJSONArray(i).get(0).toString(),
+                        records2.getJSONArray(i).get(1).toString(),
+                        records2.getJSONArray(i).get(2).toString(),
+                        records2.getJSONArray(i).get(3).toString(),
+                        records2.getJSONArray(i).get(4).toString());
 
                 reportList.add(report);
             }

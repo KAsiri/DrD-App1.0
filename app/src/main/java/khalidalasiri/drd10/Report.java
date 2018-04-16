@@ -3,19 +3,30 @@ package khalidalasiri.drd10;
 public class Report {
 
     // class to store the data from Report table and handel it for the ReportProvider
+
     // "ReportID","ReportDate","BloodPressure","BloodGlucoseAnalysis","HeartRate"
+    private String PatientID;
     private String ReportID;
     private String ReportDate;
     private String BloodPressure;
     private String BloodGlucoseAnalysis;
     private String HeartRate;
 
-    public Report(String reportID, String reportDate, String bloodPressure, String bloodGlucoseAnalysis, String heartRate) {
+    public Report(String patientID, String reportID, String reportDate, String bloodPressure, String bloodGlucoseAnalysis, String heartRate) {
+        PatientID = patientID;
         ReportID = reportID;
         ReportDate = reportDate;
         BloodPressure = bloodPressure;
         BloodGlucoseAnalysis = bloodGlucoseAnalysis;
         HeartRate = heartRate;
+    }
+
+    public String getPatientID() {
+        return PatientID;
+    }
+
+    public void setPatientID(String patientID) {
+        PatientID = patientID;
     }
 
     public String getReportID() {

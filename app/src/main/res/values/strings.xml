@@ -93,4 +93,7 @@
     <string name="errorDoctorIDNotFound">Doctor ID Not Found</string>
     <string name="dateOfBirth">Date Of Birth</string>
     <string name="newReports">New Reports</string>
+    <string name="drd">Dr. D</string>
+    <string name="newRespond">New Respond</string>
+    <string name="respond">Respond</string>
 </resources>

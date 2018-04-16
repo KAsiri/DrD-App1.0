@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewRespond">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btHome"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:background="@drawable/home_page" />
+
+            <TextView
+                style="@style/Titles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/newRespond" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/patientID" />
+
+        <EditText
+            android:id="@+id/etPID"
+            style="@style/submitForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titles2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/patientName" />
+
+        <EditText
+            android:id="@+id/etPatientName"
+            style="@style/submitForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/patientSex" />
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/typeOfBlood" />
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/typeOfD" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etSex"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etTypeOfBlood"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etTypeOfD"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/patientAge" />
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/weight" />
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/height" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etAge"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etWeight"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etHeight"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/BloodPressure" />
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/BloodGlucose" />
+
+        <TextView
+            style="@style/Titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/HeartRate" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etBP"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etBG"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/etHR"
+            style="@style/submitForm"
+            android:inputType="none"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Titles2"
+        android:gravity="center"
+        android:text="@string/respond"/>
+    <EditText
+        android:id="@+id/etRespond"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp100"
+        style="@style/submitForm"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/mainButton"
+        android:text="@string/submit"/>
+</LinearLayout>
+</ScrollView>

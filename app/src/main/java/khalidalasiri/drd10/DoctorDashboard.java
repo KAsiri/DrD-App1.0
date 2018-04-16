@@ -4,8 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,18 +22,20 @@ import android.support.v7.widget.Toolbar;
 import com.github.mikephil.charting.charts.BarChart;
 
 import java.net.HttpCookie;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class DoctorDashboard extends AppCompatActivity {
+public class DoctorDashboard extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Report>> {
 
     Toolbar toolbar;
     TextView tvUserName;
     Button btProfile;
     Button btPatients;
 
-    BarChart bcAvarage;
-    ListView lvDailyReport;
+    RecyclerView rvNewReports;
+    DoctorNewReportsRVAdapter doctorNewReportsRVAdapter;
+    TextView tvNoData;
     String userID;
     String doctorID;
 
@@ -74,6 +80,10 @@ public class DoctorDashboard extends AppCompatActivity {
 
         btProfile.setOnClickListener(onClickListener);
         btPatients.setOnClickListener(onClickListener);
+
+        rvNewReports = findViewById(R.id.rvNewReports);
+        tvNoData = findViewById(R.id.tvNoData);
+        loadReportHistory();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,6 +126,55 @@ public class DoctorDashboard extends AppCompatActivity {
             }
         }
         return doctorID ;
+    }
+    private void loadReportHistory() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo ni = null;
+        if (cm != null) {
+            ni = cm.getActiveNetworkInfo();
+
+            if (ni != null && ni.isConnected()) {
+                try {
+                    connection_url = "http://drd-ksa.com/drdAPI/AppAPI/api.php/";
+                    ConnectionToken connectionToken = new ConnectionToken(context);
+                    token = connectionToken.execute(connection_url).get();
+                    tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/Patient_History";
+
+                    rvNewReports.setLayoutManager(new LinearLayoutManager(this));
+                    doctorNewReportsRVAdapter = new DoctorNewReportsRVAdapter(context,new ArrayList<Report>(),userID,doctorID);
+                    rvNewReports.setAdapter(doctorNewReportsRVAdapter);
+                    getSupportLoaderManager().initLoader(0, null, this).forceLoad();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), getString(R.string.error_noInternet), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    public Loader<List<Report>> onCreateLoader(int id, Bundle args) {
+        String tableName = "Report";
+        String filter = "";
+        return new ReportLoader(context,tableURL,doctorID,"Patient_History.DoctorID",tableName,filter,token);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<List<Report>> loader, List<Report> data) {
+        if (data.isEmpty()) {
+            tvNoData.setVisibility(View.VISIBLE);
+        } else {
+            doctorNewReportsRVAdapter = new DoctorNewReportsRVAdapter(this, data,userID,doctorID);
+            rvNewReports.setAdapter(doctorNewReportsRVAdapter);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<Report>> loader) {
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

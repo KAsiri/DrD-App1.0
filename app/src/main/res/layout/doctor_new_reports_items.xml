@@ -7,11 +7,21 @@
     android:background="@drawable/border"
     android:gravity="center"
     android:layout_margin="@dimen/dp5">
+    <TextView
+        android:id="@+id/tvPID"
+        style="@style/Titles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:hint="PID"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="1">
+
         <TextView
             android:id="@+id/tvDate"
             style="@style/Titles"
