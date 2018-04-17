@@ -96,4 +96,6 @@
     <string name="drd">Dr. D</string>
     <string name="newRespond">New Respond</string>
     <string name="respond">Respond</string>
+    <string name="doctorRespond">Doctor Respond</string>
+    <string name="doctorNotRespond">Doctor Not Respond yet</string>
 </resources>

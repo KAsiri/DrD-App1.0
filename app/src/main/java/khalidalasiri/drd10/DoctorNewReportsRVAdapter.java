@@ -84,6 +84,8 @@ public class DoctorNewReportsRVAdapter extends RecyclerView.Adapter<DoctorNewRep
             tvDate = itemView.findViewById(R.id.tvDate);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvPID = itemView.findViewById(R.id.tvPID);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override

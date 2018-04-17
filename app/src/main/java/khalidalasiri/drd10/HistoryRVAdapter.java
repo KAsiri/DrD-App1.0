@@ -1,6 +1,7 @@
 package khalidalasiri.drd10;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,10 +19,14 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<HistoryRVAdapter.VH> 
 
     Context context;
     List<Report> reportsList;
+    String userID;
+    String doctorID;
 
-    public HistoryRVAdapter(Context context, List<Report> reportsList) {
+    public HistoryRVAdapter(Context context, List<Report> reportsList, String userID, String doctorID) {
         this.context = context;
         this.reportsList = reportsList;
+        this.userID = userID;
+        this.doctorID = doctorID;
     }
 
     @Override
@@ -45,7 +50,6 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<HistoryRVAdapter.VH> 
         String time = null;
         try {
             dateAndTime = dateFormat.parse(reportsList.get(position).getReportDate());
-            Log.d("print",dateAndTime.toString());
             date = df.format(dateAndTime.getTime());
             time = tf.format(dateAndTime.getTime());
         } catch (ParseException e) {
@@ -62,7 +66,7 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<HistoryRVAdapter.VH> 
         return reportsList.size();
     }
 
-    public class VH extends RecyclerView.ViewHolder {
+    public class VH extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvBP;
         TextView tvBG;
         TextView tvHR;
@@ -77,6 +81,17 @@ public class HistoryRVAdapter extends RecyclerView.Adapter<HistoryRVAdapter.VH> 
             tvHR = itemView.findViewById(R.id.tvHR);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvTime = itemView.findViewById(R.id.tvTime);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent TheRespond = new Intent(view.getContext(), TheRespond.class);
+            TheRespond.putExtra("userID", userID);
+            TheRespond.putExtra("PatientID",doctorID);
+            TheRespond.putExtra("ReportID",reportID);
+            context.startActivity(TheRespond);
         }
     }
 }

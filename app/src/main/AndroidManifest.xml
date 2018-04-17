@@ -47,7 +47,8 @@
         <activity android:name=".DoctorMyProfile" />
         <activity android:name=".History" />
         <activity android:name=".MyPatients" />
-        <activity android:name=".NewRespond"></activity>
+        <activity android:name=".NewRespond" />
+        <activity android:name=".TheRespond"></activity>
     </application>
 
 </manifest>

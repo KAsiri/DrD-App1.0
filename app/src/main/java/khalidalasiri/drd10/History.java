@@ -12,7 +12,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -109,7 +108,7 @@ public class History extends AppCompatActivity implements LoaderManager.LoaderCa
                     tableURL = "http://drd-ksa.com/drdAPI/AppAPI/api.php/Patient_History";
 
                     rvReportHistory.setLayoutManager(new LinearLayoutManager(this));
-                    historyRVAdapter = new HistoryRVAdapter(context,new ArrayList<Report>());
+                    historyRVAdapter = new HistoryRVAdapter(context,new ArrayList<Report>(),userID,patientID);
                     rvReportHistory.setAdapter(historyRVAdapter);
                     getSupportLoaderManager().initLoader(0, null, this).forceLoad();
                 } catch (InterruptedException e) {
@@ -135,7 +134,7 @@ public class History extends AppCompatActivity implements LoaderManager.LoaderCa
         if (data.isEmpty()) {
             tvNoData.setVisibility(View.VISIBLE);
         } else {
-            historyRVAdapter = new HistoryRVAdapter(this, data);
+            historyRVAdapter = new HistoryRVAdapter(this, data,userID,patientID);
             rvReportHistory.setAdapter(historyRVAdapter);
         }
     }
