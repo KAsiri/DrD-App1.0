@@ -47,4 +47,5 @@ MyProfile (Doctor) Activity:
 This Activity will show the Doctor Information which provided on Registration and give him the ability to update it, when the Activity start it will send a get request to the API and specify the tables which store the Doctor Information and pass the UserId and the DoctorID.  
 MyPatients (Doctor) Activity:  
 This Activity will show a RecyclerView which contain all the Patient information for this DoctorID, the code behind that will provide the data throw AsyncTaskLoader which send a GET request to the API to get the Patients by pass the DoctorID to the Specialist table and include the Patient table that will show only the Patients for this DoctorID, so the Patients information will store in arrayList and pass it to a RecyclerViewAdapter which build the RecyclerView and keep it up-to-date.
+<img src="https://github.com/KAsiri/DrD-App1.0/blob/master/App%20ScreenShot/DMP.PNG" alt="Main" width="350" height="700"> 
 <img src="https://github.com/KAsiri/DrD-App1.0/blob/master/App%20ScreenShot/DR.PNG" alt="Main" width="350" height="700">  
