@@ -1,5 +1,6 @@
 # Abstract   
-Introduction Dr. D is a system to make connection between diabetes patients and a doctor, diabetes patients provide a specific information which help the doctor provide medical care by reply to the patient with the appropriate recipe and nutrition and health guidance, that will make continuous care for the diabetes patients and give them more healthy live.   
+Introduction  
+Dr. D is a system to make connection between diabetes patients and a doctor, diabetes patients provide a specific information which help the doctor provide medical care by reply to the patient with the appropriate recipe and nutrition and health guidance, that will make continuous care for the diabetes patients and give them more healthy live.   
 
 Problem Statement   
 ● The patient need to rapidly visit the doctor to get the approbet care, which loss of time, effort and money.   
