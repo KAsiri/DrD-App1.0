@@ -57,8 +57,8 @@ public class ConnectionToken extends AsyncTask<String,Void,List<HttpCookie> >{
         JSONObject jsonData = new JSONObject();
 
         try {
-            jsonData.put("username", "admin");
-            jsonData.put("password", "admin");
+            jsonData.put("username", "******"); // replace the *'s with your server username
+            jsonData.put("password", "******"); // replace the *'s with your server password
 
         } catch (JSONException e) {
             e.printStackTrace();
